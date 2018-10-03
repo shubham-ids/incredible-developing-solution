@@ -20,7 +20,9 @@
                 <div class="form-group">
                     <label for="firstName" class="col-sm-3 control-label">First Name</label>
                     <div class="col-sm-9">
-                        <input onkeypress="fnameWordRequired(this)" onchange="fnameRequired(this)" type="text" id="firstName" name="fname " placeholder="First Name" class="form-control" autofocus>
+                        <input 
+                        onkeyup="findUpperCaseWithCustomMatching(this) //fnameWordRequired(this) " 
+                        onchange="//fnameRequired(this);" type="text" id="firstName" name="fname " placeholder="First Name" class="form-control" autofocus>
                         <div id="fnameRequiredMessage" style="color: red">
                         	<?php
                         	    if(isset($firstnameErrorMessage)==true){
