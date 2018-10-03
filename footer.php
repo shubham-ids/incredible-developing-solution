@@ -1,7 +1,7 @@
   </body>
   <script type="text/javascript">
     //Validation Requirment
- /*   function fnameRequired(fname){
+    function fnameRequired(fname){
        if(fname.value === ""){ 
          document.getElementById('firstName').style.backgroundColor = "pink";       
          document.getElementById('fnameRequiredMessage').innerHTML = "First Name is required";
@@ -50,27 +50,7 @@
           document.getElementById('password').style.backgroundColor = "white";
         }  
     }
-    //Phone NUmber Validation
-    function phnumberRequired(phnmbr){
-     if(isNaN(phnmbr.value)){
-        document.getElementById('phoneNumber').style.backgroundColor = "pink";
-        document.getElementById('phoneNumberRequiredMessage').innerHTML = "Enter the correct phone number";
-      }else{
-        document.getElementById('phoneNumber').style.backgroundColor = "white";
-        document.getElementById('phoneNumberRequiredMessage').innerHTML = " ";
-      } 
-    }  
-    // Max and min value 
-    function valideNumber(valideNumMgs){
-     if( valideNumMgs.value.length<10 ||valideNumMgs.value.length>10 ){
-      document.getElementById('phoneNumber').style.backgroundColor = "pink";
-      document.getElementById('phonenumberLengthMessage').innerHTML = "Maximum 10 number are allowed";
-      }else{
-        document.getElementById('phoneNumber').style.backgroundColor = "white";
-        document.getElementById('phonenumberLengthMessage').innerHTML = " ";
-       }
-     }
-     //Email validation Eroor*/
+     //Email validation Eroor
 
        /*
    *
@@ -81,30 +61,33 @@
    *    true  : If it has a single uppercase character
    *    false : If it has no uppercase character
    */
-  function findUpperCaseWithCustomMatching(upperCase){
-    var upperCaseArray = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-    //var testString = "ncow uper case A";
-    var testString = upperCase.value;
-    var counter = 0;
-    var flag = false;
-    for(var i= 0 ; i < testString.length; i++){
-       console.log(i, testString[i]);
-      for(var y=0; y < upperCaseArray.length; y++){    
-        //console.log(i, y, testString[i], upperCaseArray[y]);
-        if(testString[i] == upperCaseArray[y] ){
-          //console.log('we found one upper case i.e' , upperCaseArray[y] );
-          document.getElementById('fnameRequiredMessage').innerHTML = "we found one upper case : "+upperCaseArray[y] ;
-          flag = true;
-          break;
-        }
-        counter++;
-        console.log(counter);
-      }
-      if(flag == true){
-        break;
+  /*function emailSpicalCharacterMatch(input , ID){
+    var spicalCharacter = "@ .";
+    //console.log(input.value.length);
+    for(var i=0; i < spicalCharacter.length; i++ ){
+      console.log(spicalCharacter[i]);
+      if(input.value.indexOf(spicalCharacter[i]) !== spicalCharacter[i]){
+        console.log('Please Enter the First word like : [A to Z]');
       }
     }
-    return flag;
-  }
+  }*/
+      //Phone NUmber Validation
+    function phnumberRequired(phnmbr){
+     var ErrorMessageShow = document.getElementById('phoneNumberRequiredMessage');
+          ErrorMessageShow.innerHTML = " ";
+      if(isNaN(phnmbr.value)){
+        document.getElementById('phoneNumberRequiredMessage').innerHTML = "Enter the correct phone number";
+        return false;
+      }
+      if(isNaN(phnmbr.value) != false){
+       if( phnmbr.value.length < 10 ){
+        document.getElementById('phonenumberLengthMessage').innerHTML = "Minimum 10 number are allowed";
+        return;
+        }else{
+        document.getElementById('phonenumberLengthMessage').innerHTML = "Maximum 10 number are allowed";
+        return;
+        }
+      } 
+    }  
   </script>
   </html>

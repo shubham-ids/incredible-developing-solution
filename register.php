@@ -42,7 +42,7 @@
                 <div class="form-group">
                     <label for="email" class="col-sm-3 control-label">Email* </label>
                     <div class="col-sm-9">
-                        <input onkeypress="emailRequired(this)" type="email" id="email" name="email" placeholder="Email" class="form-control" name= "email">
+                        <input onkeypress="//emailSpicalCharacterMatch(this , emailRequiredMessage);//emailRequired(this)" type="email" id="email" name="email" placeholder="Email" class="form-control" name= "email">
                         <div id="emailRequiredMessage"></div>
                     </div>
                 </div>
@@ -63,7 +63,7 @@
                 <div class="form-group">
                     <label for="phoneNumber" class="col-sm-4 control-label">Phone number </label>
                     <div class="col-sm-9">
-                        <input onkeypress="phnumberRequired(this) , valideNumber(this)" type="phoneNumber" id="phoneNumber" name="phnumber " placeholder="Phone number" class="form-control">
+                        <input onkeypress="phnumberRequired(this)" type="phoneNumber" id="phoneNumber" name="phnumber " placeholder="Phone number" class="form-control">
                         <div id="phoneNumberRequiredMessage" style="color: red"></div>
                         <div id="phonenumberLengthMessage" style="color: red"></div>
                       <!--  <span class="help-block">Your phone number won't be disclosed anywhere </span> -->
