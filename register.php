@@ -21,8 +21,8 @@
                     <label for="firstName" class="col-sm-3 control-label">First Name</label>
                     <div class="col-sm-9">
                         <input 
-                        onkeyup="findUpperCaseWithCustomMatching(this) //fnameWordRequired(this) " 
-                        onchange="//fnameRequired(this);" type="text" id="firstName" name="fname " placeholder="First Name" class="form-control" autofocus>
+                        onkeyup="findUpperCaseWithCustomMatching(this)" 
+                        type="text" id="firstName" name="fname " placeholder="First Name" class="form-control" autofocus>
                         <div id="fnameRequiredMessage" style="color: red">
                         	<?php
                         	    if(isset($firstnameErrorMessage)==true){
@@ -35,7 +35,7 @@
                 <div class="form-group">
                     <label for="lastName" class="col-sm-3 control-label">Last Name</label>
                     <div class="col-sm-9">
-                        <input onkeypress="lnameWordRequired(this)" onchange="lnameRequired(this)" type="text" id="lastName" name="lname" placeholder="Last Name" class="form-control" autofocus>
+                        <input onkeypress="" type="text" id="lastName" name="lname" placeholder="Last Name" class="form-control" autofocus>
                         <div id="lnameRequiredMessage" style="color: red"></div>                        
                     </div>
                 </div>
@@ -63,7 +63,10 @@
                 <div class="form-group">
                     <label for="phoneNumber" class="col-sm-4 control-label">Phone number </label>
                     <div class="col-sm-9">
-                        <input onkeypress="phnumberRequired(this)" type="phoneNumber" id="phoneNumber" name="phnumber " placeholder="Phone number" class="form-control">
+                        <input 
+                          onkeyup="valideNumber(this)//phnumberRequired(this , 'phoneNumberRequiredMessage')"
+
+                          type="text" id="phoneNumber" name="phnumber " placeholder="Phone number" class="form-control">
                         <div id="phoneNumberRequiredMessage" style="color: red"></div>
                         <div id="phonenumberLengthMessage" style="color: red"></div>
                       <!--  <span class="help-block">Your phone number won't be disclosed anywhere </span> -->

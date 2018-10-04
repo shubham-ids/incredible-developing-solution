@@ -40,16 +40,47 @@
          document.getElementById('lastName').style.backgroundColor = "white";
        }  
     }    
-    //Password Validatin  
-    function passwordRequired(passwrd){
-      if(passwrd.value.length >= 8){      
-          document.getElementById('passwrdRequiredMessage').innerHTML = "Minimum 8 characters in length ";
-          document.getElementById('password').style.backgroundColor = "pink";
-       }else{
-          document.getElementById('passwrdRequiredMessage').innerHTML = " ";
-          document.getElementById('password').style.backgroundColor = "white";
-        }  
+    //Phone NUmber Validation
+    // function phnumberRequired(lnameWR, errorId){
+    //  var ErrorMessageShow = document.getElementById(errorId);
+    //  var num  = "1234567890";    
+    //  for(var i=0; i<lnameWR.length; i++){
+    //   console.log(lnameWR.length);
+    //  }   
+    //  return;   
+    // }  
+   // valide phone number validation
+    function valideNumber(input){
+      var allowedCharacter = ["+","-","0","1","2","3","4","5","6","7","8","9"];
+
+      var value = input.value;
+
+      console.log(value, value.length);
+      for(var i=0; i < value.length; i++){
+           //console.log(values.value.length);
+       if( allowedCharacter.indexOf(value[i]) == -1  ){
+         console.log('Please enter the correct number')
+          return false;
+       }
+
+      return true;
+
     }
+
+
+    // if(input.value === ""){
+    //   return errorElement.innerHTML = "This field is required";
+    // }   
+    // if(input.value == upperCaseArray){
+    //   return errorElement.innerHTML = "Please enter the only numbers";
+    // } 
+    // if(input.value.length < 10){     
+    //   return errorElement.innerHTML = "Only 10 numbers are allowed";
+    // }  
+    // if(input.value.length > 10){    
+    //   return errorElement.innerHTML = "Please erase the extra number";
+    // }  
+  }
      //Email validation Eroor
 
        /*
@@ -71,23 +102,5 @@
       }
     }
   }*/
-      //Phone NUmber Validation
-    function phnumberRequired(phnmbr){
-     var ErrorMessageShow = document.getElementById('phoneNumberRequiredMessage');
-          ErrorMessageShow.innerHTML = " ";
-      if(isNaN(phnmbr.value)){
-        document.getElementById('phoneNumberRequiredMessage').innerHTML = "Enter the correct phone number";
-        return false;
-      }
-      if(isNaN(phnmbr.value) != false){
-       if( phnmbr.value.length < 10 ){
-        document.getElementById('phonenumberLengthMessage').innerHTML = "Minimum 10 number are allowed";
-        return;
-        }else{
-        document.getElementById('phonenumberLengthMessage').innerHTML = "Maximum 10 number are allowed";
-        return;
-        }
-      } 
-    }  
   </script>
   </html>
