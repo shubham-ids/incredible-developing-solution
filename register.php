@@ -64,8 +64,7 @@
                     <label for="phoneNumber" class="col-sm-4 control-label">Phone number </label>
                     <div class="col-sm-9">
                         <input 
-                          onkeyup="valideNumber(this)//phnumberRequired(this , 'phoneNumberRequiredMessage')"
-
+                          onkeyup="valideNumber(this)"
                           type="text" id="phoneNumber" name="phnumber " placeholder="Phone number" class="form-control">
                         <div id="phoneNumberRequiredMessage" style="color: red"></div>
                         <div id="phonenumberLengthMessage" style="color: red"></div>
