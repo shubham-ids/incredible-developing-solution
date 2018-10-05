@@ -47,8 +47,9 @@
                     <label for="email" class="col-sm-3 control-label">Email* </label>
                     <div class="col-sm-9">
                         <input 
+                         onblur="validateRequired(this ,'emailRequiredMessage');"
                          onkeyup="validateRequired(this ,'emailRequiredMessage'); emailRequired(this , 'emailRequiredMessage');"
-                         onblur="validateRequired(this ,'emailRequiredMessage'); emailRequired(this , 'emailRequiredMessage');"
+                         onchange="validateRequired(this ,'emailRequiredMessage'); emailRequired(this , 'emailRequiredMessage');"
                          type="email" id="email" name="email" placeholder="Email" class="form-control" name= "email">
                         <div id="emailRequiredMessage" style="color: red"></div>
                     </div>
