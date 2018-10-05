@@ -74,7 +74,7 @@
                     </div>
                 </div>                
                 <div class="form-group">
-                    <label for="phoneNumber" class="col-sm-4 control-label">Phone number </label>
+                    <label for="phoneNumber" class="col-sm-4 control-label">Phone Number </label>
                     <div class="col-sm-9">
                         <input
                          onkeyup ="mobileRequired(this , 'phoneNumberRequiredMessage')"
@@ -113,7 +113,20 @@
                                     type="radio" id="otherRadio" name="gender" value="Other">Others
                                 </label>
                             </div>  
-                            <div id="GenderErrorMessage" style="color: red"></div>                          
+                      <!--      <div id="GenderErrorMessage" style="color: red"></div> -->
+                            <div class="col-sm-12">
+                              <label for="sel1">Select :</label>
+                                <select 
+                                 onchange="genderRequired(this , 'GenderErrorMessage')" 
+                                 onkeyup="genderRequired(this , 'GenderErrorMessage')" 
+                                 class="form-control" id="sel1">
+                                  <option value= " " style="display: none;">Gender</option>
+                                  <option>Male</option>
+                                  <option>Female</option>
+                                  <option>Others</option>
+                                </select>
+                            </div>  
+                            <div id="GenderErrorMessage" style="color: red"></div>                                                      
                         </div>
                     </div>
                 </div> <!-- /.form-group -->

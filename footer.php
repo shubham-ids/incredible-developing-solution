@@ -88,24 +88,34 @@
     var specialCharacters = "@.";
     var EmailField = input.value;
     var emailElement = document.getElementById(errorId);
-    emailElement.innerHTML = "";    
-    if(specialCharacters.indexOf(EmailField[i=0]) !== -1){
+    emailElement.innerHTML = ""; 
+    console.log(EmailField.indexOf());
+    if(specialCharacters.indexOf(EmailField[0]) !== -1){
       
       emailElement.innerHTML = "Invalide Email";
       return; 
     }
-    if(EmailField[i=0] !== '@'){
-      console.log( input.value);
-      for(var i=0; i<input.value.length; i++){
-        for(var j=0; j<specialCharacters.length; j++){
-           console.log(input.value[i] +"Matched"+specialCharacters[j]);
-           if(input.value[i] !== specialCharacters[j])  {
-              emailElement.innerHTML = "Invalide Email";
-           }
-        }
-      }
+    if(EmailField.indexOf("@") == -1 ){
+      emailElement.innerHTML = "Please include an '@'";
+      return;
     }
-    return false;
+    if(EmailField.indexOf(".") == -1){
+      emailElement.innerHTML = "Please Enter the part of following @ '.'";
+      return;     
+    }
+   if(  specialCharacters.indexOf( EmailField[ EmailField.length -1] ) !== -1 ){
+      emailElement.innerHTML = "Invalide Email";
+   }
+   if( EmailField.indexOf('@') == EmailField.indexOf('.') ){
+     emailElement.innerHTML = "Invalide Email";
+   }
+   if( EmailField.indexOf('.') == EmailField.indexOf('@')+1 ){
+      emailElement.innerHTML = " '.' is used at wrong position: "+ EmailField;
+   }
+   if( EmailField.indexOf('.') == EmailField.indexOf('@')-1 ){
+      emailElement.innerHTML = " '.' is used at wrong position: "+ EmailField;
+   }   
+    return ;
   }
 
 /*
