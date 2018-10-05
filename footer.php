@@ -92,7 +92,7 @@
     console.log(EmailField.indexOf());
     if(specialCharacters.indexOf(EmailField[0]) !== -1){
       
-      emailElement.innerHTML = "Invalide Email";
+      emailElement.innerHTML = "Invalide emial";
       return; 
     }
     if(EmailField.indexOf("@") == -1 ){
