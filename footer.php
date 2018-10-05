@@ -50,7 +50,7 @@
     for(var i= 0 ; i < testString.length; i++){
       for(var y=0; y < upperCaseArray.length; y++){
         if(testString[i] == upperCaseArray[y] ){
-          console.log('we found one upper case i.e' , upperCaseArray[y] );
+          //console.log('we found one upper case i.e' , upperCaseArray[y] );
           flag = true;
           break;
         }
@@ -83,39 +83,59 @@
   /*
   * Correct Email validation Error
   * shjd@fnghlkf.khdfg
+  * Spical Character are not allowed
   */
   function emailRequired(input ,errorId ){
     var specialCharacters = "@.";
+    var notAllowedCharacter = ",'\";=-~!#$%^&*[]()_+{}:|<>?";
     var EmailField = input.value;
     var emailElement = document.getElementById(errorId);
     emailElement.innerHTML = ""; 
-    console.log(EmailField.indexOf());
+    // Find the " @ . " is not insert the First Number
     if(specialCharacters.indexOf(EmailField[0]) !== -1){
-      
-      emailElement.innerHTML = "Invalide emial";
-      return; 
+      emailElement.innerHTML = "An error occured while checking the email authentication status for :"+EmailField;
     }
+    // Find the Not Allowed Number for email 
+    if(EmailField !== ""){
+      for( var i= 0; i< EmailField.length; i++ ){
+        if(notAllowedCharacter.indexOf(EmailField[i]) !== -1){
+          emailElement.innerHTML = "You have entered the invalide Email";
+          return;
+        }
+      }
+    }
+    // Display the Message for Include the @
     if(EmailField.indexOf("@") == -1 ){
       emailElement.innerHTML = "Please include an '@'";
       return;
     }
+    // Display the Message for Include the .
     if(EmailField.indexOf(".") == -1){
       emailElement.innerHTML = "Please Enter the part of following @ '.'";
       return;     
     }
+    // Checked the @. is not insert the last digit 
    if(  specialCharacters.indexOf( EmailField[ EmailField.length -1] ) !== -1 ){
       emailElement.innerHTML = "Invalide Email";
+      return;
    }
-   if( EmailField.indexOf('@') == EmailField.indexOf('.') ){
-     emailElement.innerHTML = "Invalide Email";
-   }
+   // // isme condition check ho rahi hai ke 
+   // if( EmailField.indexOf('@') == EmailField.indexOf('.') ){
+   //   emailElement.innerHTML = "Invalide Email";
+   //   return;
+   // }
+
+   // isme yeeh find ho raha hai ke . @ ke sth he to nhi aa raha eg : @.
    if( EmailField.indexOf('.') == EmailField.indexOf('@')+1 ){
       emailElement.innerHTML = " '.' is used at wrong position: "+ EmailField;
+      return;
    }
+   //isme yeeh dekh raha hai ke . @ ke age to nhi aa raha eg : .@
    if( EmailField.indexOf('.') == EmailField.indexOf('@')-1 ){
       emailElement.innerHTML = " '.' is used at wrong position: "+ EmailField;
+      return;
    }   
-    return ;
+    return true;
   }
 
 /*
@@ -156,7 +176,7 @@
     errorElement.innerHTML = "";
     if(password.value != cPassword.value)
     {
-      errorElement.innerHTML = "Password not match";
+      errorElement.innerHTML = "The confirm Password should not be same as Password";
     }
   }   
 
@@ -198,7 +218,7 @@
       return;
     }
     if(input.value.length < 11){
-      errorElement.innerHTML = "Min Numbers allowed are 10";
+      errorElement.innerHTML = "Please enter a 10-digit Phone Number";
       return;
     }  
     if(input.value.length > 11){
