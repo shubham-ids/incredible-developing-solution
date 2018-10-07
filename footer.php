@@ -94,7 +94,6 @@
     // Find the " @ . " is not insert the First Number
     if(specialCharacters.indexOf(EmailField[0]) !== -1){
       emailElement.innerHTML = "An error occured while checking the email authentication status for :"+EmailField;
-      return; 
     }
     // Find the Not Allowed Number for email 
     if(EmailField !== ""){
