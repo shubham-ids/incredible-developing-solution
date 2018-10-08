@@ -1,0 +1,18 @@
+a) Selector in jQuery
+  -- Id based
+  -- Class based
+  -- tag based
+
+b) Remove function in jquery
+
+c) Parent function in jquery
+
+c) Binding event on dynamic element in jQuery
+
+d) using 'on' to do binding
+
+e) .first(), .last() functions
+
+f) .parent
+
+g) unbind() function
