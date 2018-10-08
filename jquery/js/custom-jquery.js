@@ -1,5 +1,14 @@
 $(document).ready(function(){ 
-	/* Called the Function in Input Field */
+  var events = function{
+    requireField(this , '#input-Fname' ,'#inputfName');
+    notAllowedNumber(this , '#input-Fname' , '#inputfName');
+  }
+  $('#inputfName').change(events);
+  $('#inputfName').blur(events);
+  $('#inputfName').change(events);
+
+
+	/* Called the Fucntion in Input Field */
 	$('#inputfName').change(function(){
 	  requireField(this , '#input-Fname' ,'#inputfName'); // Display the Required Message in First Name
 	});
