@@ -13,12 +13,30 @@
   <h2>Stacked form</h2>
   <form id="validation-form">
     <div class="form-group row">
-      <label for="inputEmail" id="label-input" class="col-sm-2 col-form-label">Email</label>
+      <label for="fName"  class="col-sm-2 col-form-label">First Name</label>
+      <div class="col-sm-7">
+        <input type="text" class="form-control is-valid" id="inputfName" placeholder="Enter Your First Name">          
+      </div>
+      <div class="col-sm-3">
+        <small id="input-Fname" class="text-danger"></small>      
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="lName" class="col-sm-2 col-form-label">Last Name</label>
+      <div class="col-sm-7">
+        <input type="text" class="form-control is-valid" id="inputlName" placeholder="Enter Your Last Name">          
+      </div>
+      <div class="col-sm-3">
+        <small id="input-Lname" class="text-danger"></small>      
+      </div>
+    </div>        
+    <div class="form-group row">
+      <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
       <div class="col-sm-7">
         <input type="email" class="form-control is-valid" id="inputEmail" placeholder="Email">          
       </div>
       <div class="col-sm-3">
-        <small id="inputHelp" class="text-danger"></small>      
+        <small id="input-Email" class="text-danger"></small>      
       </div>
     </div>
     <div class="form-group row">
@@ -27,14 +45,10 @@
         <input type="password" class="form-control is-invalid" id="inputPassword" placeholder="Password">
       </div>
       <div class="col-sm-3">
-        <small id="passwordHelp" class="text-danger">
+        <small id="input-password" class="text-danger">
           Must be 8-20 characters long.
         </small>      
       </div>
-    </div>
-    <div class="form-group">
-      <label for="exampleFormControlInput1">Email address</label>
-      <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
     </div>
     <div class="form-group">
       <label for="exampleFormControlSelect1">Example select</label>
