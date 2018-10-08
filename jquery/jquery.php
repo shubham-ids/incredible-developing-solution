@@ -15,7 +15,7 @@
     <div class="form-group row">
       <label for="fName"  class="col-sm-2 col-form-label">First Name</label>
       <div class="col-sm-7">
-        <input type="text" class="form-control is-valid" id="inputfName" placeholder="Enter Your First Name">          
+        <input type="text" class="form-control is-valid " id="inputfName" placeholder="Enter Your First Name">          
       </div>
       <div class="col-sm-3">
         <small id="input-Fname" class="text-danger"></small>      
@@ -42,40 +42,34 @@
     <div class="form-group row">
       <label for="inputPassword" class="col-sm-2 col-form-label ">Password</label>
       <div class="col-sm-7">
-        <input type="password" class="form-control is-invalid" id="inputPassword" placeholder="Password">
+        <input type="password" class="form-control is-valid" id="inputPassword" placeholder="Password">
       </div>
       <div class="col-sm-3">
-        <small id="input-password" class="text-danger">
-          Must be 8-20 characters long.
-        </small>      
+        <small id="input-password" class="text-danger"></small>      
       </div>
     </div>
     <div class="form-group">
-      <label for="exampleFormControlSelect1">Example select</label>
-      <select class="form-control" id="exampleFormControlSelect1">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
+      <label for="exampleFormControlSelect1">Qualification</label>
+      <select class="form-control" id="inputQualification">
+        <option value="">Select</option>
+        <option>MCA</option>
+        <option>BBA</option>
+        <option>BCA</option>
+        <option>B.COM</option>
       </select>
+      <div class="col-sm-3">
+        <small id="input-qualification" class="text-danger"></small>      
+      </div>
     </div>
     <div class="form-group">
-      <label for="exampleFormControlSelect2">Example multiple select</label>
-      <select multiple class="form-control" id="exampleFormControlSelect2">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label for="exampleFormControlTextarea1">Example textarea</label>
-      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+      <label for="exampleFormControlTextarea1">Address:</label>
+      <div class="col-sm-3">
+        <small id="input-address" class="text-danger"></small>      
+      </div>
+      <textarea class="form-control" id="inputAddress" rows="3"></textarea>
     </div>
   </form>
 </div>
-</body>
 <script src= "js/custom-jquery.js" ></script>
+</body>
 </html>
