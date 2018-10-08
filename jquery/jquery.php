@@ -48,6 +48,15 @@
         <small id="input-password" class="text-danger"></small>      
       </div>
     </div>
+    <div class="form-group row">
+      <label for="inputPassword" class="col-sm-2 col-form-label ">Phone Number</label>
+      <div class="col-sm-7">
+        <input type="text" class="form-control is-valid" id="inputPNumber" placeholder="Phone Number">
+      </div>
+      <div class="col-sm-3">
+        <small id="input-PNumber" class="text-danger"></small>      
+      </div>
+    </div>    
     <div class="form-group">
       <label for="exampleFormControlSelect1">Qualification</label>
       <select class="form-control" id="inputQualification">
@@ -67,7 +76,7 @@
         <small id="input-address" class="text-danger"></small>      
       </div>
       <textarea class="form-control" id="inputAddress" rows="3"></textarea>
-    </div>
+    </div>    
   </form>
 </div>
 <script src= "js/custom-jquery.js" ></script>

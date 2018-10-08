@@ -30,6 +30,12 @@ $(document).ready(function(){
 	$('#inputPassword').keyup(function(){
 		passwordValidation(this , '#input-password' , '#inputPassword'); // Display The Password Min or Max Length 
 	});
+    $('#inputPNumber').blur(function(){
+    requireField(this , '#input-PNumber' , '#inputPNumber'); // Display The Required Message  in qualification
+  });
+    $('#inputPNumber').keyup(function(){
+    PhoneNumberValidation(this , '#input-PNumber' , '#inputPNumber'); // Display The Required Message  in qualification
+  });    
   $('#inputQualification').blur(function(){
     requireField(this , '#input-qualification' , '#inputQualification'); // Display The Required Message  in qualification
   });
@@ -37,7 +43,7 @@ $(document).ready(function(){
     requireField(this , '#input-qualification' ,'#inputQualification' ); // Display The Required Message in qualification
   });
     $('#inputAddress').blur(function(){
-    requireField(this , '#input-address' , '#inputAddress'); // Display The Required Message  in qualification
+    requireField(this , '#input-address' , '#inputAddress'); // Display The Required Message  in Address
   });  
  /*
   * This function is used to display the error in text border
@@ -133,10 +139,7 @@ function EmailValidation(input , ErrorId , textErrorId){
 }
 /*
 * This function is used to three perameter
-* Checked the blank filed
 * Checked the Min and Max value
-* Find the Uppercase value 
-* Find the Special character 
 */
   function passwordValidation(input, ErrorId , textErrorId){
     SuccessBorder(textErrorId , ErrorId);   	
@@ -152,5 +155,29 @@ function EmailValidation(input , ErrorId , textErrorId){
         return;
       }  
   }   
+/*
+* This function is used to three perameter
+* Checked the Number character
+*/
+  function PhoneNumberValidation( input, ErrorId , textErrorId){
+    SuccessBorder(textErrorId , ErrorId);
+    var InputValue = $(input).val();
+    console.log(  );
+    if(isNaN(InputValue)==true){
+      $(ErrorId).html("Just filled by number: "+InputValue);
+      ErrorBorder(textErrorId , ErrorId);
+      return;     
+    }
+      if(InputValue.length < 10){
+        $(ErrorId).html(" Phone number at least 10 number are allowed :"+InputValue);
+        ErrorBorder(textErrorId , ErrorId);
+        return;
+      }
+      if(InputValue.length > 10){
+        $(ErrorId).html("Please erase the extra add number :"+InputValue);
+        ErrorBorder(textErrorId , ErrorId);
+        return;
+      }     
+  }  
 
 });
