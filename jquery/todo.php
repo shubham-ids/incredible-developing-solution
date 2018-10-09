@@ -62,7 +62,18 @@ ul li:hover {
     background-color: #949292;
     color: #fff;           
 }
-
+/*.checked::before {
+  content: '';
+  position: absolute;
+  border-color: #fff;
+  border-style: solid;
+  border-width: 0 2px 2px 0;
+  top: 10px;
+  left: 16px;
+  transform: rotate(45deg);
+  height: 15px;
+  width: 7px;
+}*/
 .checked span{
     text-decoration: line-through;
 }
@@ -81,12 +92,12 @@ ul li:hover {
 </div>
 
 <ul class="conterner">
-  <li class="checked"><span> Hit the gym     <a> X </a> </span> </li>
-  <li><span> Pay bills       <a> X </a> </span> </li>
-  <li><span> Meet George     <a> X </a> </span>  </li>
-  <li><span> Buy eggs        <a> X </a> </span>  </li>
-  <li><span> Read a book     <a> X </a> </span> </li>
-  <li><span> Organize office <a> X </a> </span> </li>
+  <li><i class='fa fa-check'></i><span> Hit the gym     <a> X </a> </span> </li>
+  <li><i class='fa fa-check'></i><span> Pay bills       <a> X </a> </span> </li>
+  <li><i class='fa fa-check'></i><span> Meet George     <a> X </a> </span>  </li>
+  <li><i class='fa fa-check'></i><span> Buy eggs        <a> X </a> </span>  </li>
+  <li><i class='fa fa-check'></i><span> Read a book     <a> X </a> </span> </li>
+  <li><i class='fa fa-check'></i><span> Organize office <a> X </a> </span> </li>
 </ul>
 
 
@@ -102,7 +113,7 @@ ul li:hover {
        // show validation error;
        return;
      }
-     $('ul').append("<li><span>" +  $('input').val() + "<a> X </a></span></li>");
+     $('ul').append("<li> <i class='fa fa-check'></i> <span>" +  $('input').val() + "<a> X </a></span> </li>");
      $('input').val('');
    });
 
@@ -120,16 +131,10 @@ ul li:hover {
       $(this).removeClass('checked');
     }else{
       $(this).addClass('checked'); 
-      //$(this).prepend('<span></span>');    
     }
-
     // Second alternative
     // $(this).toggleClass('checked');
-   })
-   // if( $('li').hasClass('checked') == true ){
-   //  console.log('The Value has been checked');
-   // }
-
+   });   
  });
 
 </script>

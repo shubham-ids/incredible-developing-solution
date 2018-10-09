@@ -94,6 +94,12 @@
         .checked .fa{
             display: inline;
         }
+p {
+    border-width: 1px 1px 1px 1px;
+    color: #fff;
+    border-style: solid;
+    position: absolute;
+}
 
         </style>
     </head>
@@ -109,9 +115,9 @@
   <li class="checked"> <i class="fa fa-check"></i> <span> Hit the gym <a> X </a> </span> </li>
   <li>Pay bills <a> X </a> </li>
   <li>Meet George <a> X </a> </li>
-  <li>Buy eggs <a> X </a> </li>
+  <li>>Buy eggs <a> X </a> </li>
   <li>Read a book <a> X </a> </li>
-  <li>Organize office <a> X </a> </li>
+  <li><p></p><a>Organize office <a> X </a> </li>
 </ul>
 
 
