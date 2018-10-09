@@ -53,7 +53,7 @@ a{
     float: right;
 }
 li .fa{
-    display: none;
+    visibility:  hidden;
 }
 ul li:hover {
   background: #ddd;
@@ -78,8 +78,21 @@ ul li:hover {
     text-decoration: line-through;
 }
 .checked .fa{
-    display: inline;
+    visibility: visible;
 }
+
+
+
+/*
+li span{
+  margin-left: 18px;
+}
+
+li.checked span{
+  margin-left: 0px;
+}
+
+*/
 
 </style>
 </head>
@@ -92,50 +105,68 @@ ul li:hover {
 </div>
 
 <ul class="conterner">
+<!--
   <li><i class='fa fa-check'></i><span> Hit the gym     <a> X </a> </span> </li>
   <li><i class='fa fa-check'></i><span> Pay bills       <a> X </a> </span> </li>
   <li><i class='fa fa-check'></i><span> Meet George     <a> X </a> </span>  </li>
   <li><i class='fa fa-check'></i><span> Buy eggs        <a> X </a> </span>  </li>
   <li><i class='fa fa-check'></i><span> Read a book     <a> X </a> </span> </li>
   <li><i class='fa fa-check'></i><span> Organize office <a> X </a> </span> </li>
+-->
 </ul>
 
 
 <script type="text/javascript">
 
- $(document).ready(function(){
-     var onclickFunction = function(){
-     $(this).parent().remove();
-   };
+$(document).ready(function(){
+
+  var activeList = [
+    "First task",
+    " Second task",
+    "Jatin task",
+    "Subhma task"
+  ];
+
+  function pushToList(text){
+    $('ul').append("<li> <i class='fa fa-check'></i> <span>" +  text + "<span> <a> X </a> </span> </li>");
+  }
+
+  for(var i=0 ; i <= activeList.length ; i++){
+    pushToList( activeList[i] );
+  }
+  
+  var removeItem = function(){
+    $(this).closest('li').remove();
+  };
 
    $('button').click(function(){
      if(  $('input').val() == "") {
        // show validation error;
        return;
      }
-     $('ul').append("<li> <i class='fa fa-check'></i> <span>" +  $('input').val() + "<a> X </a></span> </li>");
+     pushToList( $('input').val() );
      $('input').val('');
    });
 
   // Binding the anchor tags
-   $('a').click(onclickFunction);
-   // Event binding using `on`
+  // This is static binding i.e done with anchor present in the HTML
+  // $('a').click(onclickFunction);
 
-   $('ul').on( 'click', 'a',function(){
-     $(this).parent().remove();
-   });
 
-   $('ul').on('click','li',function(){
-    // First alernative
-    if( $(this).hasClass('checked') ){
-      $(this).removeClass('checked');
-    }else{
-      $(this).addClass('checked'); 
-    }
-    // Second alternative
-    // $(this).toggleClass('checked');
-   });   
- });
+  // Event binding using `on`
+  // This is using because element are added dynamically
+  $('ul').on( 'click', 'a',function(){
+    console.log('we got here');
+    $(this).closest('li').remove();
+  });
+
+  // Toggling class on li click
+  // This class is added because UI is done based on this class
+  $('ul').on('click','li',function(){
+    $(this).toggleClass('checked');
+  });
+
+});
 
 </script>
 
