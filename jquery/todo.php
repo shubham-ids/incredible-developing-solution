@@ -27,11 +27,7 @@
     font-size: 32px;
     font-style: oblique;
 }
-<<<<<<< HEAD
 button {
-=======
-.add {
->>>>>>> 934dfa3423ba31ad17f5ef300d69d32e00090082
     width: 16%;
     padding: 9px;
     font-size: 16px;
@@ -51,10 +47,12 @@ li{
     list-style-type: none;
     background: #eee;
     font-size: 18px;
+    margin-bottom:8px;
 }
 
 a{
     float: right;
+    padding: 6px 36px;
 }
 li .fa{
     visibility:  hidden;
@@ -79,7 +77,6 @@ ul li:hover {
   width: 7px;
 }*/
 .checked span{
-<<<<<<< HEAD
   text-decoration: line-through;
 }
 .checked .fa{
@@ -97,16 +94,15 @@ ul li:hover {
   font-size: 20px;
   color:red;
 }
-=======
-    text-decoration: line-through;
+.addTime {
+
+    width: 10%;
+    text-align: center;
+    font-size: 12px;
+    color: #c7c7c7;
+    -webkit-transition-timing-function: ;
+
 }
-.checked .fa{
-    visibility: visible;
-}
-
-
-
->>>>>>> 934dfa3423ba31ad17f5ef300d69d32e00090082
 /*
 li span{
   margin-left: 18px;
@@ -120,7 +116,6 @@ li.checked span{
 
 </style>
 </head>
-<<<<<<< HEAD
 <body> 
   <div class="todo">
     <h2 class="headerName">My To Do List</h2>
@@ -131,14 +126,14 @@ li.checked span{
   </div>
 
   <ul class="conterner">
-  <!--
-    <li><i class='fa fa-check'></i><span> Hit the gym     <a> X </a> </span> </li>
-    <li><i class='fa fa-check'></i><span> Pay bills       <a> X </a> </span> </li>
+  
+    <li><i class='fa fa-check'></i><span> Hit the gym     <a> X </a> </span><div class="addTime">Add Task 02:50PM</div> </li>
+<!--    <li><i class='fa fa-check'></i><span> Pay bills       <a> X </a> </span> </li>
     <li><i class='fa fa-check'></i><span> Meet George     <a> X </a> </span>  </li>
     <li><i class='fa fa-check'></i><span> Buy eggs        <a> X </a> </span>  </li>
     <li><i class='fa fa-check'></i><span> Read a book     <a> X </a> </span> </li>
-    <li><i class='fa fa-check'></i><span> Organize office <a> X </a> </span> </li>
-  -->
+    <li><i class='fa fa-check'></i><span> Organize office <a> X </a> </span> </li> -->
+  
   </ul>
 <script type="text/javascript">
   $(document).ready(function(){
@@ -163,8 +158,16 @@ li.checked span{
       }
     } 
     /*
-    *
+    * Display the time for add a new element 
     */
+    var TimeCheck;
+    function addTime(tagName){
+      TimeCheck  = setTimeout(function(){
+        var date = new date();
+      } , 1000);
+      $(tagName).html(TimeCheck);
+      return;
+    }
     var activeList = [
       "First task",
       " Second task",
@@ -173,8 +176,9 @@ li.checked span{
     ];
     //This function is used to add the new element and appeng the list
     function pushToList(text){
+      addTime('');
       $('ul').append("<li> <i class='fa fa-check'></i> <span>" +  text + "<span> <a> X </a> </span> </li>");
-
+      
     }
     for(var i=0 ; i <= activeList.length ; i++){
       pushToList( activeList[i] );
@@ -208,78 +212,6 @@ li.checked span{
     $('ul').on('click','li',function(){
       $(this).toggleClass('checked');
     });
-=======
-<body>
-
-<div class="todo">
-  <h2 class="headerName">My To Do List</h2>
-  <input type="text" class="inputValue" placeholder="Enter Text..."/>
-  <button class="add"> Add </button>
-</div>
-
-<ul class="conterner">
-<!--
-  <li><i class='fa fa-check'></i><span> Hit the gym     <a> X </a> </span> </li>
-  <li><i class='fa fa-check'></i><span> Pay bills       <a> X </a> </span> </li>
-  <li><i class='fa fa-check'></i><span> Meet George     <a> X </a> </span>  </li>
-  <li><i class='fa fa-check'></i><span> Buy eggs        <a> X </a> </span>  </li>
-  <li><i class='fa fa-check'></i><span> Read a book     <a> X </a> </span> </li>
-  <li><i class='fa fa-check'></i><span> Organize office <a> X </a> </span> </li>
--->
-</ul>
-
-
-<script type="text/javascript">
-
-$(document).ready(function(){
-
-  var activeList = [
-    "First task",
-    " Second task",
-    "Jatin task",
-    "Subhma task"
-  ];
-
-  function pushToList(text){
-    $('ul').append("<li> <i class='fa fa-check'></i> <span>" +  text + "<span> <a> X </a> </span> </li>");
-  }
-
-  for(var i=0 ; i <= activeList.length ; i++){
-    pushToList( activeList[i] );
-  }
-  
-  var removeItem = function(){
-    $(this).closest('li').remove();
-  };
-
-   $('button').click(function(){
-     if(  $('input').val() == "") {
-       // show validation error;
-       return;
-     }
-     pushToList( $('input').val() );
-     $('input').val('');
-   });
-
-  // Binding the anchor tags
-  // This is static binding i.e done with anchor present in the HTML
-  // $('a').click(onclickFunction);
-
-
-  // Event binding using `on`
-  // This is using because element are added dynamically
-  $('ul').on( 'click', 'a',function(){
-    console.log('we got here');
-    $(this).closest('li').remove();
-  });
-
-  // Toggling class on li click
-  // This class is added because UI is done based on this class
-  $('ul').on('click','li',function(){
-    $(this).toggleClass('checked');
-  });
-
->>>>>>> 934dfa3423ba31ad17f5ef300d69d32e00090082
 });
 
 </script>
