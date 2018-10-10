@@ -1,4 +1,5 @@
 $(document).ready(function(){ 
+<<<<<<< HEAD
 	/* Called the Function in Input Field */
 
   var fnameventValidation = function(){
@@ -11,6 +12,24 @@ $(document).ready(function(){
   $('#inputlName').blur(function(){
     requireField(this , '#input-Lname' , '#inputlName'); // Display the Required Message in Last Name 
   });
+=======
+  var events = function{
+    requireField(this , '#input-Fname' ,'#inputfName');
+    notAllowedNumber(this , '#input-Fname' , '#inputfName');
+  }
+  $('#inputfName').change(events);
+  $('#inputfName').blur(events);
+  $('#inputfName').change(events);
+
+
+	/* Called the Fucntion in Input Field */
+	$('#inputfName').change(function(){
+	  requireField(this , '#input-Fname' ,'#inputfName'); // Display the Required Message in First Name
+	});
+	$('#inputfName').keyup(function(){
+	  notAllowedNumber(this , '#input-Fname' , '#inputfName'); // Display the Error Message in Not Allowed Number in First Name
+	});	
+>>>>>>> 934dfa3423ba31ad17f5ef300d69d32e00090082
 	$('#inputlName').change(function(){
 		requireField(this , '#input-Lname' , '#inputlName'); // Display the Required Message in Last Name 
 	});

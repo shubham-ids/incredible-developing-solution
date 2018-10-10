@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+<style>
+
+</style>
+</head>
+<body>
+
+<div >
+  <h2>My To Do List</h2>
+  <input type="text"/>
+  <button> Add </button>
+</div>
+
+<ul>
+  <li>Hit the gym <a> X </a> </li>
+  <li class="checked">Pay bills <a> X </a> </li>
+  <li>Meet George <a> X </a> </li>
+  <li>Buy eggs <a> X </a> </li>
+  <li>Read a book <a> X </a> </li>
+  <li>Organize office <a> X </a> </li>
+</ul>
+
+
+<script type="text/javascript">
+
+ $(document).ready(function(){
+  
+
+   var onclickFunction = function(){
+     console.log("Default binding");
+     $(this).parent().remove();
+   };
+
+   $('button').click(function(){
+
+     if(  $('input').val() == "") {
+       // show validation error;
+       return;
+     }
+
+
+
+
+     $('ul').append("<li>" +  $('input').val() + "<a> X </a></li>");
+
+     $('input').val('');
+
+     // Not a good appoach
+     // Because this is binding event multiple time on same 'a'
+     
+     // $('a').click(function(){
+     //   console.log("Inner binding");
+     //   $(this).parent().remove();
+     // });
+
+
+     // Better way of binding
+     // $('li').last().find('a').click(function(){
+     //   console.log('I am the last element adeed');
+     //    $(this).parent().remove();
+     // });
+
+     // Unbinding and then doing the rebinding
+     // $('a').unbind("click", onclickFunction);
+     // $('a').click(onclickFunction);
+   });
+
+
+
+  // Binding the anchor tags
+   $('a').click(onclickFunction);
+
+
+   // Event binding using `on`
+
+   // $('ul').on( 'click', 'a',function(){
+   //   console.log("Default binding");
+   //   $(this).parent().remove();
+   // });
+
+   $('a').click(function(){
+    console.log(' Second binding ');
+   })
+
+ });
+
+</script>
+
+
+</body>
+</html>
