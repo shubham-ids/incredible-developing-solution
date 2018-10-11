@@ -1,4 +1,18 @@
 $(document).ready(function(){ 
+<<<<<<< HEAD
+	/* Called the Function in Input Field */
+
+  var fnameventValidation = function(){
+    requireField(this , '#input-Fname' ,'#inputfName');
+    notAllowedNumber(this , '#input-Fname' , '#inputfName');
+  } 
+  $('#inputfName').keyup(fnameventValidation);
+  $('#inputfName').blur(fnameventValidation);
+  // Last Name
+  $('#inputlName').blur(function(){
+    requireField(this , '#input-Lname' , '#inputlName'); // Display the Required Message in Last Name 
+  });
+=======
   var events = function{
     requireField(this , '#input-Fname' ,'#inputfName');
     notAllowedNumber(this , '#input-Fname' , '#inputfName');
@@ -15,12 +29,14 @@ $(document).ready(function(){
 	$('#inputfName').keyup(function(){
 	  notAllowedNumber(this , '#input-Fname' , '#inputfName'); // Display the Error Message in Not Allowed Number in First Name
 	});	
+>>>>>>> 934dfa3423ba31ad17f5ef300d69d32e00090082
 	$('#inputlName').change(function(){
 		requireField(this , '#input-Lname' , '#inputlName'); // Display the Required Message in Last Name 
 	});
 	$('#inputlName').keyup(function(){
 		notAllowedNumber(this , '#input-Lname' , '#inputlName'); // Display the Error Message in Not Allowed Number in Last Name
-	});	
+	});
+  //Email	
 	$('#inputEmail').change(function(){
 	    requireField(this , '#input-Email' , '#inputEmail' ); // Display the Required Message in Email
 	});
@@ -30,6 +46,7 @@ $(document).ready(function(){
 		$('#inputEmail').keyup(function(){
 	    EmailValidation(this , '#input-Email' , '#inputEmail' ); // Display the Email Validation Message
 	});
+  // Password
 	$('#inputPassword').change(function(){
 		requireField(this , '#input-password' , '#inputPassword'); // Display the Required Message in Password
 	});
@@ -39,21 +56,30 @@ $(document).ready(function(){
 	$('#inputPassword').keyup(function(){
 		passwordValidation(this , '#input-password' , '#inputPassword'); // Display The Password Min or Max Length 
 	});
+  // Phone Number
     $('#inputPNumber').blur(function(){
     requireField(this , '#input-PNumber' , '#inputPNumber'); // Display The Required Message  in qualification
   });
     $('#inputPNumber').keyup(function(){
     PhoneNumberValidation(this , '#input-PNumber' , '#inputPNumber'); // Display The Required Message  in qualification
-  });    
+  }); 
+  // Qualification   
   $('#inputQualification').blur(function(){
     requireField(this , '#input-qualification' , '#inputQualification'); // Display The Required Message  in qualification
   });
     $('#inputQualification').change(function(){
     requireField(this , '#input-qualification' ,'#inputQualification' ); // Display The Required Message in qualification
   });
+  // Address
     $('#inputAddress').blur(function(){
     requireField(this , '#input-address' , '#inputAddress'); // Display The Required Message  in Address
-  });  
+  }); 
+  //Gender 
+    $('#maleRadios').blur(function(){
+      requireField(this , '#gender'); // Display The Required Message  in Male
+    });
+
+
  /*
   * This function is used to display the error in text border
   */
@@ -90,6 +116,7 @@ $(document).ready(function(){
     ErrorBorder(textErrorId , ErrorId);
     return;
   }
+  return;
 }
 
 /*

@@ -66,10 +66,10 @@
         <option>BCA</option>
         <option>B.COM</option>
       </select>
-      <div class="col-sm-3">
-        <small id="input-qualification" class="text-danger"></small>      
-      </div>
+      <small id="input-qualification" class="text-danger"></small>
     </div>
+    <div class="form-group">
+    </div>   
     <div class="form-group">
       <label for="exampleFormControlTextarea1">Address:</label>
       <div class="col-sm-3">
