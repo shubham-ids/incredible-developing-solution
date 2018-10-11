@@ -2,17 +2,31 @@
 <html>
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<style type="text/css">
+.jt{
+    background-color: rgba(255, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    outline: 0px;
+}
+
+.jt:hover{
+    background-color: rgba(255, 0, 0, 0.8);
+}
+
+
+
+/*
+ 
+*/
+</style>
 <script>
 $(document).ready(function(){
-    $("#hide").click(function(){
-        $("p").hide();
-    });
-    $("#show").click(function(){
-        $("p").show();
-    });
 
 
-    // // This is how specify CSS property
+    // // Thiss is how specify CSS property
     // $("#hide").click(function(){
     //     $("P").css( "display", "none" );
     // });
@@ -20,15 +34,30 @@ $(document).ready(function(){
     //     $("P").css( "display", "inline" );
     // });
 
+
+    $('#green').click(function(){
+        $('.jt').css('background-color', 'rgba(0, 132, 0, 0.5)');
+    });
+
+    $('#red').click(function(){
+        $('.jt').css('background-color', 'rgba(255, 0, 0, 0.5)');
+    });
+
+    $('#yellow').click(function(){
+        $('.jt').css('background-color', 'rgba(148, 146, 0, 0.5)');
+    });
+
 });
 </script>
 </head>
 <body>
 
+<button class="jt"> Demo Button </button>
 <p>If you click on the "Hide" button, I will disappear.</p>
 
-<button id="hide">Hide</button>
-<button id="show">Show</button>
+<button id="green">Green</button>
+<button id="red">Red</button>
+<button id="yellow">Yellow</button>
 
 </body>
 </html>
