@@ -2,9 +2,7 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="css/font-awesome.min.css">
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 
@@ -53,7 +51,8 @@ a{
     float: right;
 }
 li .fa{
-    visibility:  hidden;
+    /*visibility:  hidden;*/
+    display: none;
 }
 ul li:hover {
   background: #ddd;
@@ -78,7 +77,8 @@ ul li:hover {
     text-decoration: line-through;
 }
 .checked .fa{
-    visibility: visible;
+    display: inline;
+    /*visibility: visible;*/
 }
 
 
@@ -127,6 +127,7 @@ $(document).ready(function(){
     "Subhma task"
   ];
 
+  // This function is used to add the new element and append the list
   function pushToList(text){
     $('ul').append("<li> <i class='fa fa-check'></i> <span>" +  text + "<span> <a> X </a> </span> </li>");
   }
@@ -134,9 +135,10 @@ $(document).ready(function(){
   for(var i=0 ; i <= activeList.length ; i++){
     pushToList( activeList[i] );
   }
-  
-  var removeItem = function(){
-    $(this).closest('li').remove();
+  // This function is uesd to remove the list from task
+  function removeItem(item){
+    $(item).closest('li').remove();
+    return;
   };
 
    $('button').click(function(){
@@ -150,14 +152,14 @@ $(document).ready(function(){
 
   // Binding the anchor tags
   // This is static binding i.e done with anchor present in the HTML
-  // $('a').click(onclickFunction);
+  // $('a').click(removeItem);
 
 
   // Event binding using `on`
   // This is using because element are added dynamically
   $('ul').on( 'click', 'a',function(){
     console.log('we got here');
-    $(this).closest('li').remove();
+    removeItem(this);
   });
 
   // Toggling class on li click
