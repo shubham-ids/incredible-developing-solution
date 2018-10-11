@@ -15,7 +15,18 @@
 .jt:hover{
     background-color: rgba(255, 0, 0, 0.8);
 }
-
+#green{
+  background-color: rgba(0, 132, 0, 0.5);
+}
+#red{
+  background-color: rgba(255, 0, 0, 0.5);
+}
+#yellow{
+  background-color: rgba(148, 146, 0, 0.5);
+}
+#magenta{
+  background-color: rgba(148, 00, 0, 0.5);
+}
 
 
 /*
@@ -47,6 +58,10 @@ $(document).ready(function(){
         $('.jt').css('background-color', 'rgba(148, 146, 0, 0.5)');
     });
 
+    $('#magenta').click(function(){
+        $('.jt').css('background-color', 'rgba(148, 00, 0, 0.5)');
+    });
+
 });
 </script>
 </head>
@@ -58,6 +73,7 @@ $(document).ready(function(){
 <button id="green">Green</button>
 <button id="red">Red</button>
 <button id="yellow">Yellow</button>
+<button id="magenta">Magenta</button>
 
 </body>
 </html>
