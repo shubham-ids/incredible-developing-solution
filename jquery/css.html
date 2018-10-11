@@ -27,32 +27,36 @@
 
 <script type="text/javascript">
 
-   var colorArray = [
-     "rgba(0, 132, 0, 0.5)", 
-     "rgba(255, 0, 0, 0.5)", 
-     "rgba(148, 146, 0, 0.5)", 
-     "rgba(148, 00, 0, 0.5)", 
-     "rgba(0, 00, 0, 0.5)", 
-     "rgba(0,0,255,.5)", 
-     "rgba(45,45,45,.5)", 
-     "rgb(255, 175, 0)", 
-     "Yellow",
-     "#9edef7"
-   ];
 
-   var i=0;
-
-   $('body').click(function(){
-     $(this).css( 'background-color' , colorArray[i] );
-     i++;
-
-     if(i == colorArray.length){
-        i = 0;
-     }
-   });
+  var r = "255";
+  var g = "255";
+  var b = "255";
 
    setInterval(function(){
-      $('body').trigger('click');
+      
+      var rRandom = parseInt( Math.random() * 100  );
+
+      if(rRandom < 256 ){
+        r = rRandom;
+      }
+
+      var gRandom = parseInt( Math.random() * 100  );
+
+      if(gRandom < 256 ){
+        g = gRandom;
+      }
+
+      var bRandom = parseInt( Math.random() * 100  );
+
+      if(bRandom < 256 ){
+        b = bRandom;
+      }      
+
+
+
+
+      var randomColor = "rgba(" + [r,g,b,'0.5'].join()+ ")";
+      $("body").css('background-color', randomColor);
    },100)
 
 </script>
