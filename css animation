@@ -1,0 +1,32 @@
+JQuery
+
+--> HTML/DOM manipulation
+--> CSS manipulation
+--> HTML event methods
+--> Effects and animations
+--> AJAX
+  -- Very Very important
+  -- Will be learning today
+--> Utilities
+  -- Helper function
+
+
+-- Covered Today 
+
+  --> CSS Manipulation
+  --> Animations & Effect
+
+-- Function learned
+
+  --> hide()
+  --> show()
+  --> css()
+  --> hex color format
+  --> rgb color format
+  --> rgba color format
+
+  --> Math.random
+  --> Math.floor
+  --> Math.ceil
+  --> transition : css property
+  --> How to create random number btw 0-255   
