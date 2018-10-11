@@ -3,77 +3,52 @@
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <style type="text/css">
-.jt{
-    background-color: rgba(255, 0, 0, 0.5);
-    color: #fff;
-    border: none;
-    padding: 12px;
-    border-radius: 8px;
-    outline: 0px;
-}
+    .jt{
+        background-color: rgba(255, 0, 0, 0.5);
+        color: #fff;
+        border: none;
+        padding: 12px;
+        border-radius: 8px;
+        outline: 0px;
+    }
 
-.jt:hover{
-    background-color: rgba(255, 0, 0, 0.8);
-}
-#green{
-  background-color: rgba(0, 132, 0, 0.5);
-}
-#red{
-  background-color: rgba(255, 0, 0, 0.5);
-}
-#yellow{
-  background-color: rgba(148, 146, 0, 0.5);
-}
-#magenta{
-  background-color: rgba(148, 00, 0, 0.5);
-}
-
-
-/*
- 
-*/
+    .jt:hover{
+        background-color: rgba(255, 0, 0, 0.8);
+    }
 </style>
-<script>
-$(document).ready(function(){
-
-
-    // // Thiss is how specify CSS property
-    // $("#hide").click(function(){
-    //     $("P").css( "display", "none" );
-    // });
-    // $("#show").click(function(){
-    //     $("P").css( "display", "inline" );
-    // });
-
-
-    $('#green').click(function(){
-        $('.jt').css('background-color', 'rgba(0, 132, 0, 0.5)');
-    });
-
-    $('#red').click(function(){
-        $('.jt').css('background-color', 'rgba(255, 0, 0, 0.5)');
-    });
-
-    $('#yellow').click(function(){
-        $('.jt').css('background-color', 'rgba(148, 146, 0, 0.5)');
-    });
-
-    $('#magenta').click(function(){
-        $('.jt').css('background-color', 'rgba(148, 00, 0, 0.5)');
-    });
-
-});
-</script>
 </head>
 <body>
-
 <button class="jt"> Demo Button </button>
 <p>If you click on the "Hide" button, I will disappear.</p>
 
-<button id="green">Green</button>
-<button id="red">Red</button>
-<button id="yellow">Yellow</button>
-<button id="magenta">Magenta</button>
+<div class="color-container">
+  <!-- Here button are added dynamically --> 
+</div>
+
+<script type="text/javascript">
+
+  var colorObject = {
+    "Green"         : "rgba(0, 132, 0, 0.5)",
+    "Red"           : "rgba(255, 0, 0, 0.5)",
+    "Yellow"        : "rgba(148, 146, 0, 0.5)",
+    "Magenta"       : "rgba(148, 00, 0, 0.5)",
+    "Black"         : "rgba(0, 00, 0, 0.5)",
+    "Blue"          : "rgba(0,0,255,.5)",
+    "Grey"          : "rgba(45,45,45,.5)",
+    "Light Yellow"  : "rgb(255, 175, 0)",
+    "Shade of blue" : "#9edef7"
+   };
+
+   for(var x in colorObject ){
+    // console.log(x, colorObject[x]);
+    $('.color-container').append('<button style="background-color: '+ colorObject[x] +'" class="color-btn"> '+ x+'</button>' )
+   }
+
+    $('.color-btn').click(function(){
+      $('.jt').css('background-color', $(this).css('background-color'));
+    });
+
+</script>
 
 </body>
 </html>
