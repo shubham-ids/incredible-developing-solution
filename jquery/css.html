@@ -3,18 +3,9 @@
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <style type="text/css">
-    .jt{
-        background-color: rgba(255, 0, 0, 0.5);
-        color: #fff;
-        border: none;
-        padding: 12px;
-        border-radius: 8px;
-        outline: 0px;
-    }
-
-    .jt:hover{
-        background-color: rgba(255, 0, 0, 0.8);
-    }
+body{
+  transition: all 5s;
+}
 </style>
 </head>
 <body>
@@ -28,36 +19,16 @@
 <script type="text/javascript">
 
 
-  var r = "255";
-  var g = "255";
-  var b = "255";
 
    setInterval(function(){
       
-      var rRandom = parseInt( Math.random() * 100  );
-
-      if(rRandom < 256 ){
-        r = rRandom;
-      }
-
-      var gRandom = parseInt( Math.random() * 100  );
-
-      if(gRandom < 256 ){
-        g = gRandom;
-      }
-
-      var bRandom = parseInt( Math.random() * 100  );
-
-      if(bRandom < 256 ){
-        b = bRandom;
-      }      
-
-
-
+      var r = Math.floor(Math.random()*256);;
+      var g = Math.floor(Math.random()*256);;
+      var b = Math.floor(Math.random()*256);;
 
       var randomColor = "rgba(" + [r,g,b,'0.5'].join()+ ")";
       $("body").css('background-color', randomColor);
-   },100)
+   },5000)
 
 </script>
 
