@@ -1,0 +1,97 @@
+.todo{
+    background-color: #f00;
+    padding: 2% 3%;
+    text-align: center;
+    color: #fff;
+}
+.text-contener{
+  width: 50%;
+  margin: 0px auto;
+}
+.inputValue{
+  width: 61%;
+  padding: 7px 13px;
+  font-size: 17px;
+  margin: 7px 16px;
+}
+.description {
+  width: 61%;
+  padding: 5px 14px;
+  margin-bottom: 7px;
+}   
+.descriptionValue {
+  margin-bottom: 0px;
+  width: 40%;
+  float: left;
+}
+.headerName {
+    font-size: 32px;
+    font-style: oblique;
+}
+button {
+  width: 61%;
+  padding: 9px;
+  font-size: 16px;
+  margin: 10px 0px;
+  cursor: pointer;
+  font-style: italic;
+}
+.conterner {
+  margin: 0px 0px;
+  padding: 1% 3%;
+  background-color: #f9f9f9;
+}
+li{
+  cursor: pointer;
+  position: relative;
+  padding: 12px 8px 12px 8px;
+  list-style-type: none;
+  background: #eee;
+  font-size: 18px;
+  margin-bottom:8px;
+  float:left;
+  width:100%;
+}
+
+a{
+  float: right;
+  padding: 6px 36px;
+}
+li .fa{
+  visibility:hidden;
+}
+ul li:hover {
+  background: #ddd;
+}
+.checked{
+  background-color: #949292;
+  color: #fff;           
+}
+span{
+  float: left;
+  width: 98%;
+}
+i{
+  float: left;
+}
+.checked span{
+  text-decoration: line-through;
+}
+.checked .fa{
+  visibility: visible;
+}
+.messageContener {
+  width: 42%;
+  background-color: pink;
+  margin: 3px auto; 
+  text-align: center;
+  font-size: 20px;
+  color:red;  
+}
+.addTime {
+  width: 100%;
+  font-size: 12px;
+  color: grey;
+  margin-left: 24px;
+  float: left;
+}

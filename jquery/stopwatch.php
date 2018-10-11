@@ -26,12 +26,9 @@
 <script type="text/javascript">
 
 $(document).ready(function(){
-
   var intervalTracker; 
-
   var seconds = 0; // Track the number of seconds
   var counter = 0; // Track the number of time setInterval execute 
-
   $('#start').click(function(){
     intervalTracker = setInterval(function(){
       var currentDate = new Date();
@@ -51,8 +48,5 @@ $(document).ready(function(){
 });
 
 </script>
-
-
-
 </body>
 </html>

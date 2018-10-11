@@ -25,20 +25,6 @@
     </div>   
   </div>
   <ul class="conterner">
-   <!-- <li>
-      <i class='fa fa-check'></i>
-      <span> Hit the gym</span>
-        <p class="descriptionValue">Execize</p>
-      <a> X </a>
-      <div class="addTime">
-        <p class="DateTime">Add Task 02:50PM<p>
-      </div>
-    </li>
-    <li><i class='fa fa-check'></i><span> Pay bills       <a> X </a> </span> </li>
-    <li><i class='fa fa-check'></i><span> Meet George     <a> X </a> </span>  </li>
-    <li><i class='fa fa-check'></i><span> Buy eggs        <a> X </a> </span>  </li>
-    <li><i class='fa fa-check'></i><span> Read a book     <a> X </a> </span> </li>
-    <li><i class='fa fa-check'></i><span> Organize office <a> X </a> </span> </li> -->
   </ul>
 <script src="js/custom_todo.js"></script>
 </body>
