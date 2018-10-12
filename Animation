@@ -1,0 +1,5 @@
+A) Animate function
+  -- Parameters - 1, object
+  -- Parameter  - 2 , duration
+  -- Parameter  - 3, ease effect
+  -- Parameter  - 4, function -- called when animation is finished
