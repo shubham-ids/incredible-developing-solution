@@ -94,24 +94,20 @@ $(document).ready(function(){
   ******************************************************************/
  
     function StartTimer(output){
-      seconds = 10;
+      seconds   = 10;
+      var width = 0;
       TimeTracker = setInterval(function(){
         var currentTime = new Date(); // This is used to get the current time 
         $(output).html("<b>" + seconds + "</b>" + " <a>s</a>" );
-        // if( counter %100 == 0){
-        //   seconds--;
-        //   if( seconds < 0){
-        //     clearInterval(TimeTracker);
-        //   }
-
-        // } 
-
           seconds--;
           if( seconds < 0){
             clearInterval(TimeTracker);
           }
         counter++
-         $('.process').css('width',counter+'%');
+        if(width < 100){
+          width++;
+        }
+         $('.process').css('width',width+'%');
       },1000); // Close the breaces in stInterval function
     }//Close the breases in start timer 
   //
