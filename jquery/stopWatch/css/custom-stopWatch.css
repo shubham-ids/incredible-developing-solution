@@ -1,0 +1,77 @@
+.contener {
+  margin: 0px auto;
+  width: 50%;
+  padding: 11px 15px;
+}
+.content {
+  border: 1px solid #c7c7c7;
+  padding: 10px 17px;
+  margin-bottom: 14px;
+}
+#output {
+  text-align: center;
+  font-size: 46px;
+}  
+.bt {
+  text-align: center;
+}
+.TimerContener {
+  text-align: center;
+}     
+.TimeStamp {
+	border: none;
+	cursor: pointer;
+	padding: 19px 11px;
+	margin-right: 16px;
+	font-size: 20px;
+	width: 27%;
+} 
+.ColorTimeStamp{
+	border: none;
+	cursor: pointer;
+	padding: 19px 11px;
+	margin-right: 16px;
+	font-size: 20px;
+	width: 27%;			
+} 
+.colorbt {
+  padding: 12px 11px;
+  text-align: center;
+}		
+.stopWatchHeader{
+	width: 50%;
+	float: left;
+} 
+.headerContener {
+	width: 100%;
+	float: left;
+	border: 1px solid #c7c7c7;
+	padding: 8px 13px;
+}    
+.TimerHeader{
+	float: left;
+	width: 50%;
+} 
+.headerContener .stopWatchHeader:hover{
+	width: 50%;
+	float: left;
+	border-bottom: 3px solid rgba(0,0,255,0.5);
+	padding: 7px 0px;
+	text-align: center;
+	cursor: pointer;
+}
+.headerContener .TimerHeader:hover{
+	width: 50%;
+	float: left;
+	border-bottom: 3px solid rgba(0,0,255,0.5);
+	padding: 7px 0px;
+	text-align: center;
+	cursor: pointer;
+}
+.process {
+  border-bottom: 2px solid;
+  border-bottom-color: currentcolor;
+  border-color: rgba(0,255,0,0.5);
+  /*width: 50%;*/
+  padding: 5px 0px;
+ } 

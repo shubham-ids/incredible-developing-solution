@@ -31,6 +31,19 @@ $(document).ready(function(){
   $('#start').text('Start Time');
   $('#output').css('color', 'rgba(255, 186, 150, 0.5)');
   });
+  //Start Timer 
+  $('.TimerHeader').click(function(){
+    $('.stopWatchContener').hide(); //Toggle function are used to hide the stop button contener
+    $('.TimerContener').show();     // Toggle function are used to show the element
+    $('.process').show();
+    $('#startTimer').click(function(){
+      StartTimer('#output');
+    });
+  });
+  //Reset Timer
+  $('#resetTimer').click( function(){
+  resetTime('#output');
+  });
 
   var TimeTracker = null; // The TimeTracker default value is null
   var seconds     = 0;   // Track the number of seconds
@@ -62,6 +75,11 @@ $(document).ready(function(){
   /*
   * This function is used to one parameter
   * This function is used to reset of the time progress
+  * Function Name : resetTime
+  * Parameter     : 
+  *   output -> accept the class
+  * Return : 
+  *  void
   */
 	function resetTime(output){
     var currentDate = new Date();
@@ -71,5 +89,31 @@ $(document).ready(function(){
     seconds = 0;
     $(output).html("<b>" + seconds + "</b>" + " <a>s</a>" + " : " + "<a> 00 </a>" );      
   }
+  /*****************************************************************
+  ******************* Start Timer JQuery Code     ******************
+  ******************************************************************/
+ 
+    function StartTimer(output){
+      seconds = 10;
+      TimeTracker = setInterval(function(){
+        var currentTime = new Date(); // This is used to get the current time 
+        $(output).html("<b>" + seconds + "</b>" + " <a>s</a>" );
+        // if( counter %100 == 0){
+        //   seconds--;
+        //   if( seconds < 0){
+        //     clearInterval(TimeTracker);
+        //   }
+
+        // } 
+
+          seconds--;
+          if( seconds < 0){
+            clearInterval(TimeTracker);
+          }
+        counter++
+         $('.process').css('width',counter+'%');
+      },1000); // Close the breaces in stInterval function
+    }//Close the breases in start timer 
+  //
 
  });
