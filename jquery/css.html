@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<style type="text/css">
+body{
+  transition: all 5s;
+}
+</style>
+</head>
+<body>
+<button class="jt"> Demo Button </button>
+<p>If you click on the "Hide" button, I will disappear.</p>
+
+<div class="color-container">
+  <!-- Here button are added dynamically --> 
+</div>
+
+<script type="text/javascript">
+
+
+
+   setInterval(function(){
+      
+      var r = Math.floor(Math.random()*256);;
+      var g = Math.floor(Math.random()*256);;
+      var b = Math.floor(Math.random()*256);;
+
+      var randomColor = "rgba(" + [r,g,b,'0.5'].join()+ ")";
+      $("body").css('background-color', randomColor);
+   },5000)
+
+</script>
+
+</body>
+</html>
