@@ -1,5 +1,7 @@
 $(document).ready(function(){
 
+  //TODO : Please comment your code
+
   $('#start').click(function(){
       if( $(this).text() == 'Start Time' ){
         startTime('#output');

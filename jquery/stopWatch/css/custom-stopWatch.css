@@ -19,54 +19,54 @@
   text-align: center;
 }     
 .TimeStamp {
-	border: none;
-	cursor: pointer;
-	padding: 19px 11px;
-	margin-right: 16px;
-	font-size: 20px;
-	width: 27%;
+    border: none;
+    cursor: pointer;
+    padding: 19px 11px;
+    margin-right: 16px;
+    font-size: 20px;
+    width: 27%;
 } 
 .ColorTimeStamp{
-	border: none;
-	cursor: pointer;
-	padding: 19px 11px;
-	margin-right: 16px;
-	font-size: 20px;
-	width: 27%;			
+    border: none;
+    cursor: pointer;
+    padding: 19px 11px;
+    margin-right: 16px;
+    font-size: 20px;
+    width: 27%;         
 } 
 .colorbt {
   padding: 12px 11px;
   text-align: center;
-}		
+}       
 .stopWatchHeader{
-	width: 50%;
-	float: left;
+    width: 50%;
+    float: left;
 } 
 .headerContener {
-	width: 100%;
-	float: left;
-	border: 1px solid #c7c7c7;
-	padding: 8px 13px;
+    width: 100%;
+    float: left;
+    border: 1px solid #c7c7c7;
+    padding: 8px 13px;
 }    
 .TimerHeader{
-	float: left;
-	width: 50%;
+    float: left;
+    width: 50%;
 } 
 .headerContener .stopWatchHeader:hover{
-	width: 50%;
-	float: left;
-	border-bottom: 3px solid rgba(0,0,255,0.5);
-	padding: 7px 0px;
-	text-align: center;
-	cursor: pointer;
+    width: 50%;
+    float: left;
+    border-bottom: 3px solid rgba(0,0,255,0.5);
+    /* padding: 7px 0px; */
+    /* text-align: center; */
+    cursor: pointer;
 }
 .headerContener .TimerHeader:hover{
-	width: 50%;
-	float: left;
-	border-bottom: 3px solid rgba(0,0,255,0.5);
-	padding: 7px 0px;
-	text-align: center;
-	cursor: pointer;
+    width: 50%;
+    float: left;
+    border-bottom: 3px solid rgba(0,0,255,0.5);
+    /* padding: 7px 0px; */
+    /* text-align: center; */
+    cursor: pointer;
 }
 .process {
   border-bottom: 2px solid;
@@ -75,3 +75,8 @@
   /*width: 50%;*/
   padding: 5px 0px;
  } 
+
+ .tab-title{
+    color: lightblue;
+    border-bottom: 3px solid #fff;
+ }
