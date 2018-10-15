@@ -1,0 +1,126 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Slider </title>
+    <script src="js/jquery.min.js"></script>
+    <meta charset="utf-8" / >
+    <link rel="stylesheet" href="css/custom-slideimage.css">
+    <style type="text/css">
+    .imageOutput{
+      padding: 20px;
+      border: 1px solid #fff000;
+      height: 400px;
+    }
+    .imageOutput img{
+      height: 100%;
+    }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>JQuery Testing</h1>
+      <div class="details">Images Slider</div>
+      <div id="outputImage" class="imageOutput"></div>
+      <div class="imgbtnContainer">
+        <div class="imageContainer">
+          <img src="images/image1.jpg" class="imageSlider" id="image1">
+          <img src="images/image2.jpg" class="imageSlider" id="image2">
+          <img src="images/image3.jpg" class="imageSlider" id="image3"> 
+          <img src="images/image2.jpg" class="imageSlider" id="image4"> 
+        </div>
+        <div class="buttonContainer">
+          <button id="previous" class="btn">Previous</button>
+          <button id="next" class="btn">Next</button>
+        </div>
+      </div>
+  </div>
+  <script>
+    $(document).ready(function(){
+
+      var currentImageDisplayed = 0;
+      $('.imageSlider').click(function(){
+        console.log('Click is working', this);
+
+        // New function learned attr
+        // Learn about getter and setter in this
+        $('#outputImage').html("<img src='"+$(this).attr('src')+"' />");
+
+
+      })
+
+      $('#next').click(function(){
+        currentImageDisplayed++;
+
+        // :nth-child()
+        // :eq
+
+
+
+        //if(currentImageDisplayed == 3){
+        var totalImages = $('.imageContainer').children().length;
+        if(currentImageDisplayed == totalImages){
+          currentImageDisplayed = 0;
+        }
+
+        var nextImgSource = $('.imageContainer img').eq(currentImageDisplayed);
+
+         //$('#outputImage').html("<img src='"+nextImgSource.attr('src')+"' />");
+      
+        var clonedImages = nextImgSource.clone();
+
+        // Adding class so that we can remove the image next time
+        // $('.temp-image').remove();
+        // clonedImages.addClass('temp-image')
+
+        clonedImages.appendTo( $('body') );
+
+
+        // Type of positions
+
+        // -- Static
+        // -- relative
+        // -- absolute
+        // -- fixed
+
+        clonedImages.css({
+          'position' : 'absolute'
+        })
+
+        clonedImages.animate({
+          'height' : '411',
+          'top'    : '127',
+          'left'   : '307',
+          'width'  : '400'
+        }, 'slow', function(){
+          clonedImages.remove();
+          $('#outputImage').html("<img src='"+nextImgSource.attr('src')+"' />");          
+        })
+
+
+      })
+
+
+
+      $('#previous').click(function(){
+        currentImageDisplayed--;
+
+        // :nth-child()
+        // :eq
+
+        var totalImages = $('.imageContainer').children().length;
+        if(currentImageDisplayed == -1){
+          currentImageDisplayed = totalImages-1;
+        }
+
+        var nextImgSource = $('.imageContainer img').eq(currentImageDisplayed);
+
+        $('#outputImage').html("<img src='"+nextImgSource.attr('src')+"' />");
+      })
+
+    });
+
+
+  </script>
+  </body>
+
+</html>
