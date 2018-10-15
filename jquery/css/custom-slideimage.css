@@ -1,0 +1,31 @@
+.imageSlider {
+  width: 100px;
+  height: 85px;
+}
+.imgbtnContainer {
+  text-align: center;  
+  margin:0px;    
+}    
+.btn {
+  border: none;
+  padding: 15px 15px;
+  width: 7%;
+  margin: 9px 30px;
+} 
+.btn:hover{
+  box-shadow: 3px 4px 6px 0px;
+  cursor:pointer;
+} 
+.active{
+  opacity: 0.5;
+} 
+.imageOutput {
+  width: 100%;
+  margin: 8px 1px;
+  text-align: center;
+}   
+.slideimage {
+  margin: 0 auto;
+  width: 250px;
+  height: 300px;
+} 
