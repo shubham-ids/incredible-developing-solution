@@ -23,6 +23,8 @@
   width: 100%;
   margin: 8px 1px;
   text-align: center;
+  border: 1px solid #c7c7c7;
+  padding: 10px 0px;  
 }   
 .slideimage {
   margin: 0 auto;
