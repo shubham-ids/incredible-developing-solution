@@ -46,7 +46,6 @@
         var firstOperand, // Contain the first operand
          operator, // contain the selector operator
          resetNumber = false; // Why this is used very important ????
-
   
         //This method is used to append the button value
         $('.Number').click(function(){
@@ -88,14 +87,9 @@
         // This method is used to store os the value
         $('.InputNumber[value="="]').click(function(){
           secondOperand = $('.outputContainer').html();
-
-          console.log( parseInt(firstOperand), operator, parseInt(secondOperand));
-          console.log( parseInt(firstOperand) +operator+ parseInt(secondOperand));
-
           // var calculation = eval( parseInt(firstOperand) +operator+ parseInt(secondOperand) );
           // $('.outputContainer').html( calculation );
           // return;
-          console.log(operator);
           operatorvalue = operator;
 
           var a = parseInt(firstOperand);
@@ -117,12 +111,6 @@
           }
 
           $('.outputContainer').html( c );
-  
-
-
-
-
-
 
           // //This method is used to addtion of the value
           // if( $('.InputNumber[value="+"]').val() == "+" ){
@@ -138,7 +126,6 @@
           //   var c = a-b; 
           //   $('.outputContainer').html( c );
           // }
-        });
 
       });
     </script>

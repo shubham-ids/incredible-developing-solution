@@ -61,10 +61,7 @@
         if(currentImageDisplayed == totalImages){
           currentImageDisplayed = 0;
         }
-
-        var nextImgSource = $('.imageContainer img').eq(currentImageDisplayed);
-
-         //$('#outputImage').html("<img src='"+nextImgSource.attr('src')+"' />");
+        var nextImgSource = $('.imageContainer img').eq(currentImageDisplayed); //This method is uesd to get the current positio
       
         var clonedImages = nextImgSource.clone();
 
@@ -73,21 +70,12 @@
         // clonedImages.addClass('temp-image')
 
         clonedImages.appendTo( $('body') );
-
-
-        // Type of positions
-
-        // -- Static
-        // -- relative
-        // -- absolute
-        // -- fixed
-
         clonedImages.css({
           'position' : 'absolute'
         })
 
         clonedImages.animate({
-          'height' : '411',
+          'height' : '200',
           'top'    : '127',
           'left'   : '307',
           'width'  : '400'
@@ -96,10 +84,7 @@
           $('#outputImage').html("<img src='"+nextImgSource.attr('src')+"' />");          
         })
 
-
       })
-
-
 
       $('#previous').click(function(){
         currentImageDisplayed--;
@@ -111,9 +96,7 @@
         if(currentImageDisplayed == -1){
           currentImageDisplayed = totalImages-1;
         }
-
         var nextImgSource = $('.imageContainer img').eq(currentImageDisplayed);
-
         $('#outputImage').html("<img src='"+nextImgSource.attr('src')+"' />");
       })
 
