@@ -10,5 +10,5 @@
   	echo "connection is successfull";
   }else{
   	 echo $mysqli->connect_error(); // Display the error in database not connectivity
-  	}
+  }
 ?>
