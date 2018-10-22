@@ -66,17 +66,16 @@
         });
         // This method is used to addtion of the  value
         $('.InputNumber[value="+"]').click(function(){
-          //console.log($('.InputNumber[value="+"]').val() );
           firstOperand = $('.outputContainer').text();
           operator = "+";
           resetNumber = true;
         });
         // This method is used to Subtraction of the  value
         $('.InputNumber[value="-"]').click(function(){
-          //console.log($('.InputNumber[value="-"]').val() );
           firstOperand = $('.outputContainer').text();
           operator = "-";
           resetNumber = true;
+<<<<<<< HEAD
         });
         // This method is used to Multiplication of the  value
         $('.InputNumber[value="*"]').click(function(){
@@ -118,6 +117,59 @@
           } 
           $('.outputContainer').html( c );      
         });
+=======
+        });        
+
+        // This method is used to multiplication of the  value
+        $('.InputNumber[value="*"]').click(function(){
+          firstOperand = $('.outputContainer').text();
+          operator = "*";
+          resetNumber = true;
+        }); 
+
+        // This method is used to store os the value
+        $('.InputNumber[value="="]').click(function(){
+          secondOperand = $('.outputContainer').html();
+          // var calculation = eval( parseInt(firstOperand) +operator+ parseInt(secondOperand) );
+          // $('.outputContainer').html( calculation );
+          // return;
+          operatorvalue = operator;
+
+          var a = parseInt(firstOperand);
+          var b = parseInt(secondOperand);
+          var c;
+
+          switch(operatorvalue){
+            case "+":
+              c = a+b; 
+            break;
+            case "-":
+              c = a-b; 
+            break; 
+            case "*":
+              c = a*b; 
+            break;                 
+            default:
+              c = "Something went wrong, pelase refresh the page.";  
+          }
+
+          $('.outputContainer').html( c );
+
+          // //This method is used to addtion of the value
+          // if( $('.InputNumber[value="+"]').val() == "+" ){
+          //   var a = parseInt(firstOperand);
+          //   var b = parseInt(secondOperand);
+          //   var c = a+b; 
+          //   $('.outputContainer').html( c );
+          // }
+          // // This method is used to subtraction of the value
+          // else if( $('.InputNumber[value="-"]').val() == "-" ){
+          //   var a = parseInt(firstOperand);
+          //   var b = parseInt(secondOperand);
+          //   var c = a-b; 
+          //   $('.outputContainer').html( c );
+          // }
+>>>>>>> dd9eff8a5af8e8f6940d516585652281a3822655
 
       });
     </script>

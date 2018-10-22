@@ -7,8 +7,8 @@
   define('SMS','sms');
   $Mysqli = new mysqli(HOST,USERNAME,PASSWORD,IDS);
   if($Mysqli){
-  	//echo "connection is successfull";
+    //echo "connection is successfull";
   }else{
-  	echo $mysqli->connect_error();
+    echo $mysqli->connect_error();
   }
 ?>
