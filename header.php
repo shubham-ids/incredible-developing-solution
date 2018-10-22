@@ -1,4 +1,4 @@
-<?php include_once('db/connection.php'); ?>
+<!DOCTYPE HTML>
 <html>
   <head>
   	 <title>Incredible Developing solution</title>
