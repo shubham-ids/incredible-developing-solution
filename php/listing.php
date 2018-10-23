@@ -1,6 +1,6 @@
 <?php
-  include_once('header.php'); 
   include_once('phpCode/list.php'); 
+  include_once('header.php'); 
 ?>
 <form method="post">
   <div class="container">

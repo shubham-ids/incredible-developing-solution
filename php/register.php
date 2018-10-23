@@ -1,6 +1,6 @@
 <?php
-  include_once('header.php');
   include_once('phpCode/add.php');
+  include_once('header.php');
  ?>
 <div class="container">
     <div class="row">

@@ -1,4 +1,5 @@
 <?php
+include_once('db/connection.php');
 $message = "";
 try{
   if(isset($_REQUEST['add'])){
@@ -9,30 +10,32 @@ try{
     $password  = $_POST['password']; 
  
   // This methos is used to display the required message
-    $validationErrorMesagee = false;
+    $validationErrorMessage = false;
     if(empty($firstname)){
       $firstnameErrorMessage  = "This field is required";
-      $validationErrorMesagee = true;
+      $validationErrorMessage = true;
     }
     if(empty($lastname)){
       $lastnameErrorMessage   = "This field is required";
-      $validationErrorMesagee = true;
+      $validationErrorMessage = true;
     }
     if(empty($username)){
       $usernameErrorMessage   = "This field is required";
-      $validationErrorMesagee = true;
+      $validationErrorMessage = true;
     }
     if(empty($email)){
       $emailErrorMessage      = "This field is required";
-      $validationErrorMesagee = true;
+      $validationErrorMessage = true;
     }
-    if(empty($passwordss)){
+    if(empty($password)){
       $passwordErrorMessage   = "This field is required";
-      $validationErrorMesagee = true;
+      $validationErrorMessage = true;
     }            
 
-
-    if( $validationErrorMesagee == false ){
+  // This method is used to when validation error message is true
+  // Then this statement is executed
+    
+    if( $validationErrorMessage == false ){
       $rows = [ 
         'firstname' => $firstname,
         'lastname'  => $lastname,

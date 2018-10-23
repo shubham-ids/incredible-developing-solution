@@ -1,6 +1,6 @@
 <?php
-  include_once('header.php');
   include_once('phpCode/edit.php');
+  include_once('header.php');
  ?>
 <div class="container">
   <div class="row">
@@ -16,25 +16,53 @@
               <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
               <div class="col-md-8">
                 <input id="fname" value="<?php echo $row['firstname']; ?>" name="firstname" type="text" placeholder="First Name" class="form-control">
+                <div class="serverErrorMessage">
+                  <?php
+                    if(isset( $firstnameErrorMessage ) === true){
+                      echo $firstnameErrorMessage;
+                    } 
+                  ?>
+                </div>                
               </div>
             </div>
             <div class="form-group">
               <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
               <div class="col-md-8">
-                  <input id="lname" value="<?php echo $row['lastname']; ?>" name="lastname" type="text" placeholder="Last Name" class="form-control">
+                <input id="lname" value="<?php echo $row['lastname']; ?>" name="lastname" type="text" placeholder="Last Name" class="form-control">
+                <div class="serverErrorMessage">
+                  <?php
+                    if(isset( $lastnameErrorMessage ) === true){
+                      echo $lastnameErrorMessage;
+                    } 
+                  ?>
+                </div>          
               </div>
             </div>
             <div class="form-group">
               <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
               <div class="col-md-8">
-                  <input id="username" value="<?php echo $row['username']; ?>" name="username" type="text" placeholder="User Name" class="form-control">
+                <input id="username" value="<?php echo $row['username']; ?>" name="username" type="text" placeholder="User Name" class="form-control">
+                <div class="serverErrorMessage">
+                  <?php
+                    if(isset( $usernameErrorMessage ) === true){
+                      echo $usernameErrorMessage;
+                    } 
+                  ?>
+                </div>    
               </div>
             </div>
 
             <div class="form-group">
               <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-envelope-o bigicon"></i></span>
               <div class="col-md-8">
-                  <input id="email" value="<?php echo $row['email']; ?>" name="email" type="text" placeholder="Email Address" class="form-control">
+                <input id="email" value="<?php echo $row['email']; ?>" name="email" type="text" placeholder="Email Address" class="form-control">
+                <div class="serverErrorMessage">
+                  <?php
+                    if(isset( $emailErrorMessage ) === true){
+                      echo $emailErrorMessage;
+                    } 
+                  ?>
+                </div>   
               </div>
             </div>
 

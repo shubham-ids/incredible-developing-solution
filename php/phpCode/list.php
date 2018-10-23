@@ -1,4 +1,5 @@
 <?php 
+  include_once('db/connection.php');
   $message = "";
   //This method is used to delete the row in database using PDO 
   try{
