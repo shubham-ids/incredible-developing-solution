@@ -1,24 +1,6 @@
-<?php 
-  include_once('header.php');
-  $message = "";
-  //This method is used to delete the row in database using PDO 
-  if( isset($_REQUEST['task']) && $_REQUEST['task'] == 'delete' ){
-    $row = [
-      'id' => $_REQUEST['id']
-    ];
-    $query = "DELETE FROM '".RECORD."' WHERE id=:id";
-    echo $query;
-    $deleteQuery = $Mysqli->prepare($query);
-    $deleteQuery->execute($row);
-    if( $deleteQuery !== false ){
-      $message = "<p class='alert alert-success'>Record deleted successfull</p>";
-    }else{
-      $message = "<p class='alert alert-danger'>Record is not deleted</p>";
-    }
-  }
-  $query = "SELECT * FROM ".RECORD;
-  $selectQuery = $Mysqli->prepare($query);
-  $selectQuery->execute();
+<?php
+  include_once('header.php'); 
+  include_once('phpCode/list.php'); 
 ?>
 <form method="post">
   <div class="container">
@@ -31,6 +13,9 @@
               <div class="col col-xs-12">
                 <h1 class="panel-title"><?php echo $message; ?></h1>
               </div>
+              <div class="col col-xs-12 text-right">
+                <a href="register.php" class="btn btn-sm btn-primary btn-create" name="register">Create New</a>
+              </div>               
              <!-- <div class="col col-xs-6 text-right">
                 <button type="button" class="btn btn-sm btn-primary btn-create" name="register">Create New</button>
               </div> -->
@@ -52,7 +37,7 @@
                 <?php foreach( $selectQuery as $row ){?>
                 <tr>     
                   <td align="center">
-                    <a class="btn btn-default"><em class="fa fa-pencil"></em></a>
+                    <a class="btn btn-default" href="update.php?task=update&id=<?php echo $row['id']; ?>"><em class="fa fa-pencil"></em></a>
                     <a class="btn btn-danger" href="?task=delete&id=<?php echo $row['id']; ?>"><em class="fa fa-trash"></em></a>
                   </td>
                   <td class="hidden-xs"> <?php echo $row['id']; ?> </td>

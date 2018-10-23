@@ -56,6 +56,9 @@
                             <div class="col-md-12 text-center">
                                 <button type="submit" class="btn btn-primary btn-lg" name="add">Submit</button>
                             </div>
+                            <div class="col-md-11 text-right">
+                                <a href="listing.php">Listing File</a>
+                            </div>                               
                         </div>
                     </fieldset>
                 </form>

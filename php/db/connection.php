@@ -9,7 +9,7 @@
   try{
     $Mysqli = new PDO($dsn,USERNAME,PASSWORD);
   	//echo "connection is successfull";
-    //$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); //Display the error in mysqli database
+    $Mysqli->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); //Display the error in mysqli database
   }catch (PDOException $e){
     echo 'Connection failed: ' . $e->getMessage();
   }
