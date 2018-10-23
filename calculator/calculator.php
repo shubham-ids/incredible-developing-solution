@@ -17,7 +17,7 @@
           <button class="InputNumber" value="CE">CE</button>
           <button class="InputNumber" value="(">(</button>
           <button class="InputNumber" value=")">)</button>
-          <button class="InputNumber" value="%">%</button>
+          <button class="InputNumber" value="/">/</button>
 
           <button class="Number" value="7">7</button>
           <button class="Number" value="8">8</button>
@@ -70,11 +70,54 @@
           operator = "+";
           resetNumber = true;
         });
-        // This method is used to addtion of the  value
+        // This method is used to Subtraction of the  value
         $('.InputNumber[value="-"]').click(function(){
           firstOperand = $('.outputContainer').text();
           operator = "-";
           resetNumber = true;
+<<<<<<< HEAD
+        });
+        // This method is used to Multiplication of the  value
+        $('.InputNumber[value="*"]').click(function(){
+          //console.log($('.InputNumber[value="-"]').val() );
+          firstOperand = $('.outputContainer').text();
+          operator = "*";
+          resetNumber = true;
+        });
+        // This method is used to Devision of the  value
+        $('.InputNumber[value="/"]').click(function(){
+          //console.log($('.InputNumber[value="-"]').val() );
+          firstOperand = $('.outputContainer').text();
+          operator = "/";
+          resetNumber = true;
+        });                        
+        // This method is used to store os the value
+        $('.InputNumber[value="="]').click(function(){
+          secondOperand = $('.outputContainer').html();
+          //This method is used to addtion of the value
+          var operatorValue = operator;
+          var a = parseInt(firstOperand);
+          var b = parseInt(secondOperand);
+          var c;
+          switch(operatorValue){
+            case "+":
+              c = a+b;
+              break;
+            case "-":
+              c = a-b;
+              break;
+            case "*":
+              c = a*b;
+              break;
+            case "/":
+              c = a/b;
+              break;
+            default:
+              c = "Something went wrong, pelase refresh the page.";    
+          } 
+          $('.outputContainer').html( c );      
+        });
+=======
         });        
 
         // This method is used to multiplication of the  value
@@ -126,6 +169,7 @@
           //   var c = a-b; 
           //   $('.outputContainer').html( c );
           // }
+>>>>>>> dd9eff8a5af8e8f6940d516585652281a3822655
 
       });
     </script>
