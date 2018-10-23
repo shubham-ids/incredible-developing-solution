@@ -14,7 +14,7 @@
                 <h1 class="panel-title"><?php echo $message; ?></h1>
               </div>
               <div class="col col-xs-12 text-right">
-                <a href="register.php" class="btn btn-sm btn-primary btn-create" name="register">Create New</a>
+                <a href="register.php" class="btn btn-sm btn-primary btn-create" name="register">Create News</a>
               </div>               
              <!-- <div class="col col-xs-6 text-right">
                 <button type="button" class="btn btn-sm btn-primary btn-create" name="register">Create New</button>

@@ -2,6 +2,7 @@
   $message = "";
   //This method is used to delete the row in database using PDO 
   try{
+
     if( isset($_REQUEST['task']) && $_REQUEST['task'] == 'delete' ){
       $id = [
         'id' => $_REQUEST['id']

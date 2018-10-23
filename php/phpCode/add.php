@@ -2,21 +2,51 @@
 $message = "";
 try{
   if(isset($_REQUEST['add'])){
-    $rows = [ 
-      'firstname' => $_POST['firstname'],
-      'lastname'  => $_POST['lastname'],
-      'username'  => $_POST['username'],
-      'email'     => $_POST['email'],
-      'password'  => md5($_POST['password'])
-      ];
+    $firstname = $_POST['firstname'];
+    $lastname  = $_POST['lastname'];
+    $username  = $_POST['username'];
+    $email     = $_POST['email'];
+    $password  = $_POST['password']; 
+ 
+  // This methos is used to display the required message
+    $validationErrorMesagee = false;
+    if(empty($firstname)){
+      $firstnameErrorMessage  = "This field is required";
+      $validationErrorMesagee = true;
+    }
+    if(empty($lastname)){
+      $lastnameErrorMessage   = "This field is required";
+      $validationErrorMesagee = true;
+    }
+    if(empty($username)){
+      $usernameErrorMessage   = "This field is required";
+      $validationErrorMesagee = true;
+    }
+    if(empty($email)){
+      $emailErrorMessage      = "This field is required";
+      $validationErrorMesagee = true;
+    }
+    if(empty($passwordss)){
+      $passwordErrorMessage   = "This field is required";
+      $validationErrorMesagee = true;
+    }            
 
-    $query =  "
-      INSERT 
-      INTO ".RECORD."
+
+    if( $validationErrorMesagee == false ){
+      $rows = [ 
+        'firstname' => $firstname,
+        'lastname'  => $lastname,
+        'username'  => $username,
+        'email'     => $email,
+        'password'  => md5($password)
+      ];  
+      $query =  "
+        INSERT 
+        INTO ".RECORD."
           (`firstname`, `lastname`, `username`,`email`,`password`) 
-        VALUES 
+          VALUES 
           ( :firstname, :lastname , :username , :email , :password  )
-      ";
+        ";
       $insert = $Mysqli->prepare($query);
       $insert->execute( $rows );
 
@@ -26,6 +56,7 @@ try{
         echo "<p class='alert alert-danger'>registration Error!</p>";
         echo $Mysqli->error;
       }
+    } // Closed validationErrorMessage
   }
 }catch(PDOException $e){
     echo "your record is not insert please contact the developer";
