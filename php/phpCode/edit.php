@@ -61,7 +61,7 @@
             WHERE 
              `id` = :id
             ";    
-        $updateQuery = $Mysqli->prepare($query);
+        $updateQuery = $pdo->prepare($query);
         $response = $updateQuery->execute($rows);
         
       // var_dump($response);
@@ -79,7 +79,7 @@
 
   // This method is used to fatch the data in databade using Id
     $query = "SELECT * FROM ".RECORD." WHERE id = :id";
-    $selectQuery = $Mysqli->prepare($query);
+    $selectQuery = $pdo->prepare($query);
     $selectQuery->execute($id );
     $row = $selectQuery->fetch();
   }catch (PDOException $e){

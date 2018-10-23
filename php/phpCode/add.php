@@ -50,14 +50,14 @@ try{
           VALUES 
           ( :firstname, :lastname , :username , :email , :password  )
         ";
-      $insert = $Mysqli->prepare($query);
+      $insert = $pdo->prepare($query);
       $insert->execute( $rows );
 
       if($insert !== false){
         $message = "<p class='alert alert-success'>Successful registration!</p>";
       }else{
         echo "<p class='alert alert-danger'>registration Error!</p>";
-        echo $Mysqli->error;
+        echo $pdo->error;
       }
     } // Closed validationErrorMessage
   }

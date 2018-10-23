@@ -7,9 +7,9 @@
   // Database connectivity
   $dsn = 'mysql:dbname='.SDNT.';host=127.0.0.1'; # Data Source Name
   try{
-    $Mysqli = new PDO($dsn,USERNAME,PASSWORD);
+    $pdo = new PDO($dsn,USERNAME,PASSWORD);
   	//echo "connection is successfull";
-    $Mysqli->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); //Display the error in mysqli database
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); //Display the error in mysqli database
   }catch (PDOException $e){
     echo 'Connection failed: ' . $e->getMessage();
   }

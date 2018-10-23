@@ -9,7 +9,7 @@
         'id' => $_REQUEST['id']
       ];
       $query = "DELETE FROM `".RECORD."` WHERE id = :id ";
-      $deleteQuery = $Mysqli->prepare($query);
+      $deleteQuery = $pdo->prepare($query);
       $deleteQuery->execute($id);
       if( $deleteQuery !== false ){
         //header('Location: listing.php');
@@ -20,7 +20,7 @@
     }
     //fetch the all data in database
     $query = "SELECT * FROM ".RECORD;
-    $selectQuery = $Mysqli->prepare($query);
+    $selectQuery = $pdo->prepare($query);
     $selectQuery->execute();
   }catch(PDOException $e){
     echo "Not display the record contact the developer";
