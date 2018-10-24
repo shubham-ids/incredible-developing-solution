@@ -22,7 +22,7 @@
       foreach( $_REQUEST['users'] as $values ){
         $query       = "DELETE FROM `".RECORD."` WHERE id = :id ";
         $deleteQuery = $pdo->prepare($query);
-        $results     = $deleteQuery->execute();
+        $results     = $deleteQuery->execute(['id' => $values]);
         if( $results !== false ){
           //header('Location: listing.php');
           $message = "<p class='alert alert-success'>Records are deleted successfull</p>";
