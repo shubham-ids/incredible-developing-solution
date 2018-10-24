@@ -1,7 +1,9 @@
 <?php 
   include_once('db/connection.php');
   $message = "";
+  $searchMessage = "";
   try{
+
   // This method is used to delete the row in database using PDO 
     if( isset($_REQUEST['task']) && $_REQUEST['task'] == 'delete' ){
       $id = [
@@ -35,9 +37,28 @@
   
   // This method is used to search of the value
     if(isset($_REQUEST['searchBar'])){
-      echo "<pre>";
-        print_r($_REQUEST);
-      echo "</pre>";  
+      $searchUser = "%".$_POST['searchBar']."%"; 
+      $searchRow = [
+        'firstname' => $searchUser
+      //  'lastname'  => $searchUser,
+      //  'username'  => $searchUser,
+       // 'email'     => $searchUser
+    ];
+      $query = "
+        SELECT 
+        * 
+        FROM 
+          `".RECORD."`
+        WHERE
+          `firstname` LIKE :firstname
+        ";
+      $search     = $pdo->prepare($query);
+      $searchStmt = $search->execute($searchRow);
+      if( $searchStmt !== false ){
+        $searchMessage =  "<p class='alert alert-success'>Your search name is : ".$searchUser."</p>";
+      }else{
+        $searchMessages = "<p class='alert alert-danger'>Your search name is not valid</p>";
+      }
     } 
  
   // Fetch the all data in database

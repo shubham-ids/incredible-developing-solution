@@ -6,6 +6,9 @@
   <div class="container">
     <div class="row">  
       <h1>Student record</h1>
+      <div class="searchOutput">
+        <?php echo $searchMessage; ?>
+      </div>
       <div class="col-md-10 col-md-offset-1">
         <div class="panel panel-default panel-table">
           <div class="panel-heading">
