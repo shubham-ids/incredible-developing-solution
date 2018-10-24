@@ -9,6 +9,9 @@
       <div class="col-md-10 col-md-offset-1">
         <div class="panel panel-default panel-table">
           <div class="panel-heading">
+            <div class="col col-xs-12 text-center">
+              <input type ="text" Placeholder="Search.." id="FieldSearch" name="searchBar">
+            </div> 
             <div class="row">
               <div class="col col-xs-12">
                 <h1 class="panel-title"><?php echo $message; ?></h1>
@@ -92,19 +95,5 @@
     </div>
   </div>
 </form>
-<script type="text/javascript">
-  $(document).ready(function(){
-  // This method is used to one click the multiple checkbox clicked
-    $('#checkAll').click(function(){
-      $('.checkItem').prop('checked', $(this).prop('checked'));
-    });
-    $('.checkItem').click(function(){
-      if( $('.checkItem:checked').length == $('.checkItem').length ){
-        $('#checkAll').prop('checked',true);     
-      }else{
-        $('#checkAll').prop('checked',false);
-      } 
-    });
-  });
-</script>
+<script src="includes/custom.js " ></script>
 <?php include_once('footer.php'); ?>
