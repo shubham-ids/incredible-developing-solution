@@ -36,8 +36,8 @@
             <table class="table table-striped table-bordered table-list">
               <thead>
                 <tr>
-                  <th><input type="checkbox" class="selectBox" id="checkAll"></th>
                   <th><em class="fa fa-cog"></em></th>
+                  <th><input type="checkbox" class="selectBox" id="checkAll"></th>        
                   <th class="hidden-xs">Serial number</th>
                   <th>Firstname</th>
                   <th>Lastname</th>
@@ -51,17 +51,17 @@
                   foreach( $selectQuery as $row ){
                     $i++;  
                 ?>
-                <tr>
-                  <td><input type="checkbox" name="users[]" class="checkItem" id="<?php echo $row['id']; ?>"></td>    
+                <tr>    
                   <td align="center">
                     <a class="btn btn-default" href="update.php?task=update&id=<?php echo $row['id']; ?>"><em class="fa fa-pencil"></em></a>
                     <a class="btn btn-danger" href="?task=delete&id=<?php echo $row['id']; ?>"><em class="fa fa-trash"></em></a>
                   </td>
-                  <td class="hidden-xs"><?php echo $i; ?></td>
+                  <td> <input type="checkbox" name="users[]" class="checkItem" value="<?php echo $row['id']; ?>"></td>
+                  <td class="hidden-xs"> <?php echo $i; ?>                </td>
                   <td class="hidden-xs"> <?php echo $row['firstname']; ?> </td>
-                  <td class="hidden-xs"> <?php echo $row['lastname']; ?> </td>
-                  <td class="hidden-xs"> <?php echo $row['username']; ?> </td>
-                  <td class="hidden-xs"> <?php echo $row['email']; ?> </td> 
+                  <td class="hidden-xs"> <?php echo $row['lastname']; ?>  </td>
+                  <td class="hidden-xs"> <?php echo $row['username']; ?>  </td>
+                  <td class="hidden-xs"> <?php echo $row['email']; ?>     </td> 
                  </tr>
                 <?php } ?>
               </tbody>
@@ -94,8 +94,16 @@
 </form>
 <script type="text/javascript">
   $(document).ready(function(){
+  // This method is used to one click the multiple checkbox clicked
     $('#checkAll').click(function(){
-      $('#checkItem').prop('checked');
+      $('.checkItem').prop('checked', $(this).prop('checked'));
+    });
+    $('.checkItem').click(function(){
+      if( $('.checkItem:checked').length == $('.checkItem').length ){
+        $('#checkAll').prop('checked',true);     
+      }else{
+        $('#checkAll').prop('checked',false);
+      } 
     });
   });
 </script>

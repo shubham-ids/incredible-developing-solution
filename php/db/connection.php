@@ -1,7 +1,7 @@
 <?php
   define('HOST','localhost');
   define('USERNAME','root');
-  define('PASSWORD','');
+  define('PASSWORD','root');
   define('SDNT','sdnt');
   define('RECORD','records');
   // Database connectivity

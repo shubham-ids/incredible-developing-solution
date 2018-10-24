@@ -18,11 +18,15 @@
       }
     }
   // This method is used to multiple record delete in databases    
-    if( isset($_REQUEST['multiDelete']) && $_REQUEST['multiDelete'] == 'deleted' ){    
-      foreach( $_REQUEST['users'] as $values ){
+    if( isset($_REQUEST['multiDelete']) && $_REQUEST['multiDelete'] == 'deleted' ){  
+      echo "<pre>";
+        print_r($_REQUEST);
+      echo "</pre>";  
+      foreach( $_REQUEST['users'] as $id ){
         $query       = "DELETE FROM `".RECORD."` WHERE id = :id ";
+        echo $query;
         $deleteQuery = $pdo->prepare($query);
-        $results     = $deleteQuery->execute(['id' => $values]);
+        $results     = $deleteQuery->execute(['id' => $id]);
         if( $results !== false ){
           //header('Location: listing.php');
           $message = "<p class='alert alert-success'>Records are deleted successfull</p>";
