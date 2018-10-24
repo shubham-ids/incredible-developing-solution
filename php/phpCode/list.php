@@ -36,7 +36,7 @@
     }
   
   // This method is used to search of the value
-    if(isset($_REQUEST['searchBar'])){
+    if(!empty($_REQUEST['searchBar'])){
       $searchUser = "%".$_POST['searchBar']."%"; 
       $searchRow = [
         'firstname' => $searchUser
