@@ -13,7 +13,18 @@
               <div class="col col-xs-12">
                 <h1 class="panel-title"><?php echo $message; ?></h1>
               </div>
-              <div class="col col-xs-12 text-right">
+              <div class="col col-xs-6 text-left">
+                <div class="input-group col col-xs-9">
+                  <select class="custom-select" id="inputGroupSelect04" name="multiDelete">
+                    <option value="">Choose...</option>
+                    <option value="deleted">Deleted</option>
+                  </select>
+                  <div class="input-group-append">
+                    <button class="btn btn-sm btn-primary btn-create" id="actionButton" name="action">Action</button>
+                  </div>
+                </div>
+              </div> 
+              <div class="col col-xs-6 text-right">
                 <a href="register.php" class="btn btn-sm btn-primary btn-create" name="register">Create News</a>
               </div>               
              <!-- <div class="col col-xs-6 text-right">
@@ -25,8 +36,9 @@
             <table class="table table-striped table-bordered table-list">
               <thead>
                 <tr>
+                  <th><input type="checkbox" class="selectBox" id="checkAll"></th>
                   <th><em class="fa fa-cog"></em></th>
-                  <th class="hidden-xs">ID</th>
+                  <th class="hidden-xs">Serial number</th>
                   <th>Firstname</th>
                   <th>Lastname</th>
                   <th>Username</th>
@@ -34,13 +46,18 @@
                 </tr> 
               </thead>
               <tbody>
-                <?php foreach( $selectQuery as $row ){?>
-                <tr>     
+                <?php
+                  $i = 0; 
+                  foreach( $selectQuery as $row ){
+                    $i++;  
+                ?>
+                <tr>
+                  <td><input type="checkbox" name="users[]" class="checkItem" id="<?php echo $row['id']; ?>"></td>    
                   <td align="center">
                     <a class="btn btn-default" href="update.php?task=update&id=<?php echo $row['id']; ?>"><em class="fa fa-pencil"></em></a>
                     <a class="btn btn-danger" href="?task=delete&id=<?php echo $row['id']; ?>"><em class="fa fa-trash"></em></a>
                   </td>
-                  <td class="hidden-xs"> <?php echo $row['id']; ?> </td>
+                  <td class="hidden-xs"><?php echo $i; ?></td>
                   <td class="hidden-xs"> <?php echo $row['firstname']; ?> </td>
                   <td class="hidden-xs"> <?php echo $row['lastname']; ?> </td>
                   <td class="hidden-xs"> <?php echo $row['username']; ?> </td>
@@ -75,4 +92,11 @@
     </div>
   </div>
 </form>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('#checkAll').click(function(){
+      $('#checkItem').prop('checked');
+    });
+  });
+</script>
 <?php include_once('footer.php'); ?>

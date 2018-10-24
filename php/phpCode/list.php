@@ -1,24 +1,38 @@
 <?php 
   include_once('db/connection.php');
   $message = "";
-  //This method is used to delete the row in database using PDO 
   try{
-
+  // This method is used to delete the row in database using PDO 
     if( isset($_REQUEST['task']) && $_REQUEST['task'] == 'delete' ){
       $id = [
         'id' => $_REQUEST['id']
       ];
-      $query = "DELETE FROM `".RECORD."` WHERE id = :id ";
+      $query       = "DELETE FROM `".RECORD."` WHERE id = :id ";
       $deleteQuery = $pdo->prepare($query);
-      $deleteQuery->execute($id);
-      if( $deleteQuery !== false ){
+      $result      = $deleteQuery->execute($id);
+      if( $result !== false ){
         //header('Location: listing.php');
-        $message = "<p class='alert alert-success'>Record deleted successfull</p>";
+        $message = "<p class='alert alert-success'>Record is delete successfull</p>";
       }else{
-        $message = "<p class='alert alert-danger'>Record is not deleted</p>";
+        $message = "<p class='alert alert-danger'>Your record is not delete</p>";
       }
     }
-    //fetch the all data in database
+  // This method is used to multiple record delete in databases    
+    if( isset($_REQUEST['multiDelete']) && $_REQUEST['multiDelete'] == 'deleted' ){   
+      $id = $_REQUEST['users'];  
+      foreach( $_REQUEST['users'] as $values ){
+        $query       = "DELETE FROM `".RECORD."` WHERE id = :id ";
+        $deleteQuery = $pdo->prepare($query);
+        $results     = $deleteQuery->execute();
+        if( $results !== false ){
+          //header('Location: listing.php');
+          $message = "<p class='alert alert-success'>Records are deleted successfull</p>";
+        }else{
+          $message = "<p class='alert alert-danger'>Your records are not deleteds</p>";
+        }        
+      }     
+    }
+  // Fetch the all data in database
     $query = "SELECT * FROM ".RECORD;
     $selectQuery = $pdo->prepare($query);
     $selectQuery->execute();

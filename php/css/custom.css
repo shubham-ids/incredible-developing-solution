@@ -1,3 +1,17 @@
 .serverErrorMessage {
   color: rgb(255,0,0);
 }
+#inputGroupSelect04 {
+  float: left;
+  width: 35%;
+  border: 1px solid #c7c7c7;
+  padding: 5px 5px;
+  color: #495057;
+  margin-right: -12px;
+}
+#actionButton {
+  width: 25%;
+}
+.selectBox {
+  float: left;
+}
