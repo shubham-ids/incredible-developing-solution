@@ -3,7 +3,6 @@
   $message = "";
   $searchMessage = "";
   try{
-
   // This method is used to delete the row in database using PDO 
     if( isset($_REQUEST['task']) && $_REQUEST['task'] == 'delete' ){
       $id = [
@@ -34,9 +33,9 @@
         }        
       }     
     }
-  
+
   // This method is used to search of the value
-    if(!empty($_REQUEST['searchBar'])){
+    if(isset($_REQUEST['searchBar'])){
       $searchUser = "%".$_POST['searchBar']."%"; 
       $searchRow = [
         'firstname' => $searchUser
@@ -51,6 +50,7 @@
           `".RECORD."`
         WHERE
           `firstname` LIKE :firstname
+        LIMIT 0,5 
         ";
       $search     = $pdo->prepare($query);
       $searchStmt = $search->execute($searchRow);
@@ -63,7 +63,7 @@
  
   // Fetch the all data in database
     $query = "SELECT * FROM ".RECORD;
-    $selectQuery = $pdo->prepare($query);
+    $selectQuery = $pdo->prepare($query);        
     $selectQuery->execute();
   }catch(PDOException $e){
     echo "Not display the record contact the developer";
