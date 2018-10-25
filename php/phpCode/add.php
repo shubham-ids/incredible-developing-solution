@@ -73,11 +73,11 @@ try{
         if($insert !== false){
           $message = "<p class='alert alert-success'>Successful registration!</p>";
         }else{
-          echo "<p class='alert alert-danger'>registration Error!</p>";
+          $message =  "<p class='alert alert-danger'>registration Error!</p>";
           echo $pdo->error;
         }        
       }else{
-        echo "<p class='alert alert-danger'>Email is already include!</p>";  
+        $message = "<p class='alert alert-danger'>Email is already include!</p>";  
       }  
     } // Closed validationErrorMessage
   }

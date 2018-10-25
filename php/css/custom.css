@@ -21,3 +21,7 @@
   /*background: #dfedff url(demo-search-icon.png) no-repeat center right 7px;*/
   background: rgba(189,189,184,0.5);
 }
+#searchField {
+  float: right;
+  width: 71%;
+}

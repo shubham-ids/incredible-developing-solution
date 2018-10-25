@@ -36,8 +36,9 @@
     }
   
   // This method is used to search of the value
-    if(isset($_REQUEST['searchBar'])){
-      $searchUser = "% ".$_POST['searchBar']." %"; 
+
+    if(isset($_REQUEST['search'])){
+      $searchUser = "%".$_POST['searchBar']."%"; 
       $searchRow = [
         'firstname' => $searchUser
       //  'lastname'  => $searchUser,
@@ -62,8 +63,7 @@
     } 
  
   // Fetch the all data in database
-    $query = "SELECT * FROM ".RECORD;
-    $selectQuery = $pdo->prepare($query);
+    $selectQuery  = $pdo->prepare("SELECT * FROM ".RECORD);
     $selectQuery->execute();
   }catch(PDOException $e){
     echo "Not display the record contact the developer";
