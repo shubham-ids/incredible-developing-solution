@@ -37,7 +37,7 @@
   
   // This method is used to search of the value
     if(isset($_REQUEST['searchBar'])){
-      $searchUser = "%".$_POST['searchBar']."%"; 
+      $searchUser = "% ".$_POST['searchBar']." %"; 
       $searchRow = [
         'firstname' => $searchUser
       //  'lastname'  => $searchUser,
@@ -50,12 +50,12 @@
         FROM 
           `".RECORD."`
         WHERE
-          `firstname` LIKE :firstname
+          `firstname` LIKE :firstname 
         ";
       $search     = $pdo->prepare($query);
       $searchStmt = $search->execute($searchRow);
       if( $searchStmt !== false ){
-        $searchMessage =  "<p class='alert alert-success'>Your search name is : ".$searchUser."</p>";
+        $searchMessage  =  "<p class='alert alert-success'>Your search name is : ".$searchUser."</p>";
       }else{
         $searchMessages = "<p class='alert alert-danger'>Your search name is not valid</p>";
       }
