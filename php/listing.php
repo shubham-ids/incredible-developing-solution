@@ -12,9 +12,16 @@
       <div class="col-md-10 col-md-offset-1">
         <div class="panel panel-default panel-table">
           <div class="panel-heading">
-            <div class="col col-xs-12 text-center">
-              <input type ="text" Placeholder="Search.." id="FieldSearch" name="searchBar">
-            </div> 
+          <div id="searchField">
+            <div class="input-group col-xs-6 text-right">
+              <input type="text" class="form-control" placeholder="Search" name="searchBar" id="txtSearch"/>
+              <div class="input-group-btn">
+                <button class="btn btn-primary" type="submit" name="search">
+                  <span class="glyphicon glyphicon-search"></span>
+                </button>
+              </div>
+            </div>
+          </div>                    
             <div class="row">
               <div class="col col-xs-12">
                 <h1 class="panel-title"><?php echo $message; ?></h1>
@@ -55,7 +62,7 @@
                 <?php
                   $i = 0; 
                   foreach( $selectQuery as $row ){
-                    $i++;  
+                  $i++;  
                 ?>
                 <tr>    
                   <td align="center">

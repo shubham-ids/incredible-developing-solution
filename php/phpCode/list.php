@@ -35,7 +35,8 @@
     }
 
   // This method is used to search of the value
-    if(isset($_REQUEST['searchBar'])){
+
+    if(isset($_REQUEST['search'])){
       $searchUser = "%".$_POST['searchBar']."%"; 
       $searchRow = [
         'firstname' => $searchUser
@@ -51,11 +52,12 @@
         WHERE
           `firstname` LIKE :firstname
         LIMIT 0,5 
+          `firstname` LIKE :firstname 
         ";
       $search     = $pdo->prepare($query);
       $searchStmt = $search->execute($searchRow);
       if( $searchStmt !== false ){
-        $searchMessage =  "<p class='alert alert-success'>Your search name is : ".$searchUser."</p>";
+        $searchMessage  =  "<p class='alert alert-success'>Your search name is : ".$searchUser."</p>";
       }else{
         $searchMessages = "<p class='alert alert-danger'>Your search name is not valid</p>";
       }
@@ -64,6 +66,7 @@
   // Fetch the all data in database
     $query = "SELECT * FROM ".RECORD;
     $selectQuery = $pdo->prepare($query);        
+    $selectQuery  = $pdo->prepare("SELECT * FROM ".RECORD);
     $selectQuery->execute();
   }catch(PDOException $e){
     echo "Not display the record contact the developer";
