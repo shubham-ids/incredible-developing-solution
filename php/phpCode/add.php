@@ -48,10 +48,21 @@ try{
         FROM 
           ".RECORD." 
           WHERE 
-          email = :email ";
+          email    = :email 
+        OR
+          username = :username
+          ";
       $selectQuery = $pdo->prepare($query);
-      $selectQuery->execute( ['email' => $email] );
+      $selectQuery->execute( [
+        'email'    => $email , 
+        'username' => $username
+      ] );
       $row = $selectQuery->rowCount();
+      // echo $row."<br><br>";
+      // if($row != 0){
+      //   $message = "<p class='alert alert-danger'>Username is already include!</p>";
+      //  return; 
+      // }
       if($row < 1){
         $rows = [ 
           'firstname' => $firstname,
@@ -77,7 +88,7 @@ try{
           echo $pdo->error;
         }        
       }else{
-        $message = "<p class='alert alert-danger'>Email is already include!</p>";  
+        $message = "<p class='alert alert-danger'>Username and Email is already include!</p>";  
       }  
     } // Closed validationErrorMessage
   }

@@ -3,6 +3,10 @@
   $message = "";
   $searchMessage = "";
   try{
+  // Select databse query 
+    $sql = "SELECT * FROM ".RECORD;
+    $startPage     = 0; 
+    $recordPerPage = 5;
 
   // This method is used to delete the row in database using PDO 
     if( isset($_REQUEST['task']) && $_REQUEST['task'] == 'delete' ){
@@ -10,6 +14,7 @@
         'id' => $_REQUEST['id']
       ];
       $query       = "DELETE FROM `".RECORD."` WHERE id = :id ";
+      echo $query;
       $deleteQuery = $pdo->prepare($query);
       $result      = $deleteQuery->execute($id);
       if( $result !== false ){
@@ -40,31 +45,32 @@
     if(isset($_REQUEST['search'])){
       $searchUser = "%".$_POST['searchBar']."%"; 
       $searchRow = [
-        'firstname' => $searchUser
-      //  'lastname'  => $searchUser,
-      //  'username'  => $searchUser,
-       // 'email'     => $searchUser
+        'firstname' => $searchUser,
+        'lastname'  => $searchUser,
+        'username'  => $searchUser
     ];
-      $query = "
-        SELECT 
-        * 
-        FROM 
-          `".RECORD."`
-        WHERE
-          `firstname` LIKE :firstname 
+      $query = $sql." WHERE
+          `firstname` LIKE :firstname
+        OR 
+           `lastname` LIKE :lastname 
+        OR 
+           `username` LIKE :username      
         ";
-      $search     = $pdo->prepare($query);
-      $searchStmt = $search->execute($searchRow);
-      if( $searchStmt !== false ){
-        $searchMessage  =  "<p class='alert alert-success'>Your search name is : ".$searchUser."</p>";
-      }else{
-        $searchMessages = "<p class='alert alert-danger'>Your search name is not valid</p>";
-      }
+      $selectQuery = $pdo->prepare($query);
+      $selectQuery->execute( $searchRow );
+    }else{
+      $query        = $sql; 
+      $selectQuery  = $pdo->prepare($query);
+      $selectQuery->execute();
     } 
- 
-  // Fetch the all data in database
-    $selectQuery  = $pdo->prepare("SELECT * FROM ".RECORD);
-    $selectQuery->execute();
+
+  // This method is used to display the pagination in 
+
+
+   // Fetch the all data in database
+    //$query = $sql." limit ".$startPage." , ".$recordPerPage;
+   // echo $query;
+
   }catch(PDOException $e){
     echo "Not display the record contact the developer";
     //echo $e->getMessage();

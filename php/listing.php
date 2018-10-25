@@ -5,7 +5,7 @@
 <form method="post">
   <div class="container">
     <div class="row">  
-      <h1>Student record</h1>
+      <h1>Student Records</h1>
       <div class="searchOutput">
         <?php echo $searchMessage; ?>
       </div>
@@ -14,7 +14,13 @@
           <div class="panel-heading">
           <div id="searchField">
             <div class="input-group col-xs-6 text-right">
-              <input type="text" class="form-control" placeholder="Search" name="searchBar" id="txtSearch"/>
+              <input 
+                type="text" 
+                class="form-control" 
+                placeholder="Search.." 
+                name="searchBar"
+                value="<?php echo isset($_REQUEST['searchBar'])?$_REQUEST['searchBar']:'' ?>"
+                id="txtSearch"/>
               <div class="input-group-btn">
                 <button class="btn btn-primary" type="submit" name="search">
                   <span class="glyphicon glyphicon-search"></span>
@@ -87,15 +93,9 @@
               </div>
               <div class="col col-xs-8">
                 <ul class="pagination hidden-xs pull-right">
-                  <li><a href="#">1</a></li>
-                  <li><a href="#">2</a></li>
-                  <li><a href="#">3</a></li>
-                  <li><a href="#">4</a></li>
-                  <li><a href="#">5</a></li>
-                </ul>
-                <ul class="pagination visible-xs pull-right">
-                    <li><a href="#">«</a></li>
-                    <li><a href="#">»</a></li>
+                  <?php
+                     
+                  ?>
                 </ul>
               </div>
             </div>

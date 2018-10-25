@@ -15,7 +15,13 @@
                         <div class="form-group">
                           <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
                           <div class="col-md-8">
-                            <input id="fname" name="firstname" type="text" placeholder="First Name" class="form-control">
+                            <input  
+                              id="fname" 
+                              name="firstname" 
+                              type="text" 
+                              value="<?php echo isset($_POST["firstname"])?$_POST["firstname"]:"";  ?>"
+                              placeholder="First Name" 
+                              class="form-control">
                             <div class="serverErrorMessage">
                               <?php
                                 if(isset( $firstnameErrorMessage ) === true){
@@ -28,7 +34,13 @@
                         <div class="form-group">
                           <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
                           <div class="col-md-8">
-                            <input id="lname" name="lastname" type="text" placeholder="Last Name" class="form-control">
+                            <input 
+                              id="lname" 
+                              name="lastname"
+                              type="text"
+                              value="<?php echo isset($_POST["lastname"])?$_POST["lastname"]:"";  ?>"
+                              placeholder="Last Name"
+                              class="form-control">
                             <div class="serverErrorMessage">
                               <?php
                                 if(isset( $lastnameErrorMessage ) == true){
@@ -41,7 +53,13 @@
                         <div class="form-group">
                           <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
                           <div class="col-md-8">
-                            <input id="username" name="username" type="text" placeholder="User Name" class="form-control">
+                            <input 
+                              id="username" 
+                              name="username" 
+                              type="text"
+                              value="<?php echo isset($_POST["username"])?$_POST["username"]:"";  ?>"
+                              placeholder="User Name" 
+                              class="form-control">
                             <div class="serverErrorMessage">
                               <?php
                                 if(isset( $usernameErrorMessage ) == true){
@@ -55,7 +73,13 @@
                         <div class="form-group">
                           <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-envelope-o bigicon"></i></span>
                           <div class="col-md-8">
-                            <input id="email" name="email" type="text" placeholder="Email Address" class="form-control">
+                            <input 
+                              id="email"
+                              name="email" 
+                              type="text"
+                              value="<?php echo isset($_POST["email"])?$_POST["email"]:"";  ?>"
+                              placeholder="Email Address" 
+                              class="form-control">
                             <div class="serverErrorMessage">
                               <?php
                                 if(isset( $emailErrorMessage ) == true){
@@ -69,7 +93,13 @@
                         <div class="form-group">
                           <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa fa-eye-slash bigicon"></i></span>
                           <div class="col-md-8">
-                            <input id="password" name="password" type="password" placeholder="Password" class="form-control">
+                            <input 
+                              id="password"
+                              name="password" 
+                              type="password"
+                              value="<?php echo isset($_POST["password"])?$_POST["password"]:"";  ?>" 
+                              placeholder="Password" 
+                              class="form-control">
                             <div class="serverErrorMessage">
                               <?php
                                 if(isset( $passwordErrorMessage ) == true){
