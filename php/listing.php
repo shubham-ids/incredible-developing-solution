@@ -56,7 +56,7 @@
               <thead>
                 <tr>
                   <th><em class="fa fa-cog"></em></th>
-                  <th><input type="checkbox" class="selectBox" id="checkAll"></th>        
+                  <th><input type="checkbox" class="selectBox" id="checkAll"><i class="countChecked"></i></th>        
                   <th class="hidden-xs">Serial number</th>
                   <th>Firstname</th>
                   <th>Lastname</th>

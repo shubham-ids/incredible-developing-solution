@@ -59,17 +59,12 @@
       $selectQuery = $pdo->prepare($query);
       $selectQuery->execute( $searchRow );
     }else{
+      
+    // This method is used to display the pagination in     
       $query        = $sql; 
       $selectQuery  = $pdo->prepare($query);
       $selectQuery->execute();
     } 
-
-  // This method is used to display the pagination in 
-
-
-   // Fetch the all data in database
-    //$query = $sql." limit ".$startPage." , ".$recordPerPage;
-   // echo $query;
 
   }catch(PDOException $e){
     echo "Not display the record contact the developer";

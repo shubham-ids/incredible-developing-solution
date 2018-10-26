@@ -16,3 +16,7 @@
   float: right;
   width: 71%;
 }
+.countChecked {
+  margin-left: 5px;
+  font-size: 13px;
+}
