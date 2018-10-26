@@ -5,9 +5,6 @@
   try{
   // Select databse query 
     $sql = "SELECT * FROM ".RECORD;
-    $startPage     = 0; 
-    $recordPerPage = 5;
-
   // This method is used to delete the row in database using PDO 
     if( isset($_REQUEST['task']) && $_REQUEST['task'] == 'delete' ){
       $id = [
@@ -39,7 +36,7 @@
         }        
       }     
     }
-  
+
   // This method is used to search of the value
 
     if(isset($_REQUEST['search'])){
@@ -62,10 +59,39 @@
       
     // This method is used to display the pagination in     
       $query        = $sql; 
+    // This method is used to empty of the page value
+    // Then page default value is 1
+    // Else page value is user define  
+      if(empty($_REQUEST['page']) ){
+        $currentPage = 1;
+      }else{
+        $currentPage = intval( $_REQUEST['page'] );
+      }  
+      if($_REQUEST['page'] < 0){
+        $currentPage = 1;
+      }
+      $page           = $currentPage -1 ;
+      $record_perpage = 3;
+      $limitPosition  = $page * $record_perpage;
+
+    // This method is used to count the total of row
+      $query1         = $pdo->prepare($sql);
+      $query1->execute();
+      $rowCount       = $query1->rowCount();
+      $total_numberPages  = ceil( $rowCount / $record_perpage );
+
+    // Pagination of query
+      $query        = $sql." limit $limitPosition , $record_perpage"; 
       $selectQuery  = $pdo->prepare($query);
+    // Convert the string to integer number
+      $selectQuery->bindValue(':limitPosition', $limitPosition, PDO::PARAM_INT);
+      $selectQuery->bindValue(':record_perpage', $record_perpage, PDO::PARAM_INT);      
       $selectQuery->execute();
     } 
 
+
+
+  // This method is used to display the pagination in 
   }catch(PDOException $e){
     echo "Not display the record contact the developer";
     //echo $e->getMessage();

@@ -91,11 +91,12 @@
             <div class="row">
               <div class="col col-xs-4">Page 1 of 5
               </div>
-              <div class="col col-xs-8">
+              <div class="col col-xs-8 pagination-wrap">
                 <ul class="pagination hidden-xs pull-right">
                   <?php
-                     
-                  ?>
+                    for($i=1; $i<=$total_numberPages; $i++){ ?>
+                      <li><a href="?page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
+                  <?php }  ?>
                 </ul>
               </div>
             </div>
