@@ -55,19 +55,6 @@
         ";
       $selectQuery = $pdo->prepare($query);
       $selectQuery->execute( $searchRow );
-
-      // This method is used to search value of pagination
-      if(empty($_REQUEST['page']) ){
-        $currentPage = 1;
-      }else{
-        $currentPage = intval($_GET['page']);
-      }  
-      if($_REQUEST['page'] <= 0){
-        $currentPage = 1;
-      }    
-      $record_perpage = 4;
-      $rowCount       = $selectQuery->rowCount();
-      $total_numberPages = ceil( $rowCount / $record_perpage );      
     }else{
       
     // This method is used to display the pagination in     
@@ -78,20 +65,20 @@
       if(empty($_REQUEST['page']) ){
         $currentPage = 1;
       }else{
-        $currentPage = intval($_GET['page']);
+        $currentPage = intval( $_REQUEST['page'] );
       }  
-      if($_REQUEST['page'] <= 0){
+      if($_REQUEST['page'] < 0){
         $currentPage = 1;
       }
       $page           = $currentPage -1 ;
-      $record_perpage = 4;
+      $record_perpage = 3;
       $limitPosition  = $page * $record_perpage;
 
     // This method is used to count the total of row
       $query1         = $pdo->prepare($sql);
       $query1->execute();
       $rowCount       = $query1->rowCount();
-      $total_numberPages = ceil( $rowCount / $record_perpage );
+      $total_numberPages  = ceil( $rowCount / $record_perpage );
 
     // Pagination of query
       $query        = $sql." limit $limitPosition , $record_perpage"; 

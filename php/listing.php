@@ -95,12 +95,12 @@
                 <ul class="pagination hidden-xs pull-right">
                   <?php
                     for($i=1; $i <= $total_numberPages; $i++){ 
-                      if($i == $currentPage){ ?>
-                        <li class="active"><a href="?page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
-                  <?php }else{ ?>
-                          <li><a href="?page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
+                      $className  = ($i == $currentPage)? 'active' : '';
+                      $linkOnload = ($i == $currentPage)? '#' : '';
+                  ?>
+                        <li class="<?php echo $className; ?>"><a href="?page=<?php echo $i.$linkOnload; ?>"><?php echo $i; ?></a></li>
                    <?php    
-                      } 
+                      
                     } 
                   ?>
                 </ul>
