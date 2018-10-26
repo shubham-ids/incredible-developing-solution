@@ -67,18 +67,18 @@
       }else{
         $currentPage = intval( $_REQUEST['page'] );
       }  
-      if($_REQUEST['page'] < 0){
+      if($_REQUEST['page'] <= 0){
         $currentPage = 1;
       }
       $page           = $currentPage -1 ;
-      $record_perpage = 3;
+      $record_perpage = 5;
       $limitPosition  = $page * $record_perpage;
 
     // This method is used to count the total of row
       $query1         = $pdo->prepare($sql);
       $query1->execute();
       $rowCount       = $query1->rowCount();
-      $total_numberPages  = ceil( $rowCount / $record_perpage );
+      $total_numberPages = ceil( $rowCount / $record_perpage );
 
     // Pagination of query
       $query        = $sql." limit $limitPosition , $record_perpage"; 
