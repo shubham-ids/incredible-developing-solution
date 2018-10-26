@@ -94,9 +94,15 @@
               <div class="col col-xs-8 pagination-wrap">
                 <ul class="pagination hidden-xs pull-right">
                   <?php
-                    for($i=1; $i<=$total_numberPages; $i++){ ?>
-                      <li><a href="?page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
-                  <?php }  ?>
+                    for($i=1; $i <= $total_numberPages; $i++){ 
+                      if($i == $currentPage){ ?>
+                        <li class="active"><a href="?page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
+                  <?php }else{ ?>
+                          <li><a href="?page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
+                   <?php    
+                      } 
+                    } 
+                  ?>
                 </ul>
               </div>
             </div>
