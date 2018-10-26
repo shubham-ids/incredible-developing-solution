@@ -38,7 +38,14 @@
     }
 
   // This method is used to search of the value
-
+    if(empty($_REQUEST['page']) ){
+      $currentPage = 1;
+    }else{
+      $currentPage = intval( $_REQUEST['page'] );
+    }  
+    if($_REQUEST['page'] <= 0){
+      $currentPage = 1;
+    }
     if(isset($_REQUEST['search'])){
       $searchUser = "%".$_POST['searchBar']."%"; 
       $searchRow = [
@@ -62,14 +69,6 @@
     // This method is used to empty of the page value
     // Then page default value is 1
     // Else page value is user define  
-      if(empty($_REQUEST['page']) ){
-        $currentPage = 1;
-      }else{
-        $currentPage = intval( $_REQUEST['page'] );
-      }  
-      if($_REQUEST['page'] < 0){
-        $currentPage = 1;
-      }
       $page           = $currentPage -1 ;
       $record_perpage = 3;
       $limitPosition  = $page * $record_perpage;
