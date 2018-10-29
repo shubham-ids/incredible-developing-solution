@@ -120,7 +120,7 @@
             default:
               c = "Something went wrong, pelase refresh the page.";    
           } 
-          $('.outputContainer').html( c );      
+          $('.outputContainer').html(c);      
         });
         });        
 
@@ -131,20 +131,6 @@
           resetNumber = true;
         }); 
 
-        // //This method is used to addtion of the value
-        // if( $('.InputNumber[value="+"]').val() == "+" ){
-        //   var a = parseInt(firstOperand);
-        //   var b = parseInt(secondOperand);
-        //   var c = a+b; 
-        //   $('.outputContainer').html( c );
-        // }
-        // // This method is used to subtraction of the value
-        // else if( $('.InputNumber[value="-"]').val() == "-" ){
-        //   var a = parseInt(firstOperand);
-        //   var b = parseInt(secondOperand);
-        //   var c = a-b; 
-        //   $('.outputContainer').html( c );
-        // }
     </script>
   </body>
 </html>

@@ -56,8 +56,8 @@
     (!isset($_REQUEST['searchBar'])) ? $_REQUEST['searchBar'] = "" : $_REQUEST['searchBar'] ;   
     
   // This method is used to search of the value in table
-    if(isset($_REQUEST['search'])){
-      $searchUser = "%".$_REQUEST['searchBar']."%"; 
+    if(isset($_GET['search'])){
+      $searchUser = "%".$_GET['searchBar']."%"; 
       $searchRow = [
         'firstname' => $searchUser,
         'lastname'  => $searchUser,
@@ -114,18 +114,18 @@
 
       parse_str($_SERVER['QUERY_STRING'], $queryArray);
 
-      echo '<pre>';
-      echo $_SERVER['QUERY_STRING'];
-      print_r($queryArray);
-      echo '</pre>';
+      // echo '<pre>';
+      // echo $_SERVER['QUERY_STRING'];
+      // print_r($queryArray);
+      // echo '</pre>';
 
       $queryArray['page'] = $total_numberPages;
 
-      #$queryString =  http_build_query($queryArray);;
+      $queryString =  http_build_query($queryArray);;
 
 
-      #header("Location: ?".$queryString);
-;    }
+      header("Location: ?".$queryString);
+    }
 
 
 

@@ -118,10 +118,6 @@
                       </li>
                    <?php
                     }
-                    // if( $currentPage > $j ){
-                    //   echo "<p class='PageNotFound'> Page not found</p>";
-                    //   return;
-                    // }  
                   ?>
                 </ul>
               </div>
