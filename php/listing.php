@@ -66,9 +66,9 @@
               </thead>
               <tbody>
                 <?php
-                  $i = 0; 
+                  $i     = $limitPosition;
+                  $start = 1;
                   foreach( $selectQuery as $row ){
-                  $i++;  
                 ?>
                 <tr>    
                   <td align="center">
@@ -76,32 +76,34 @@
                     <a class="btn btn-danger" href="?task=delete&id=<?php echo $row['id']; ?>"><em class="fa fa-trash"></em></a>
                   </td>
                   <td> <input type="checkbox" name="users[]" class="checkItem" value="<?php echo $row['id']; ?>"></td>
-                  <td class="hidden-xs"> <?php echo $i; ?>                </td>
+                  <td class="hidden-xs"> <?php echo $i+$start; ?>                </td>
                   <td class="hidden-xs"> <?php echo $row['firstname']; ?> </td>
                   <td class="hidden-xs"> <?php echo $row['lastname']; ?>  </td>
                   <td class="hidden-xs"> <?php echo $row['username']; ?>  </td>
                   <td class="hidden-xs"> <?php echo $row['email']; ?>     </td> 
                  </tr>
-                <?php } ?>
+                <?php $i++; } ?>
               </tbody>
             </table>
         
           </div>
           <div class="panel-footer">
             <div class="row">
-              <div class="col col-xs-4">Page 1 of 5
+              <div class="col col-xs-4">Page 1 of <?php echo $record_perpage; ?>
               </div>
               <div class="col col-xs-8 pagination-wrap">
                 <ul class="pagination hidden-xs pull-right">
                   <?php
-                    for($i=1; $i <= $total_numberPages; $i++){ 
-                      $className  = ($i == $currentPage)? 'active' : '';
-                      $linkOnload = ($i == $currentPage)? '#' : '';
+                    for($j=1; $j <= $total_numberPages; $j++){ 
+                      $className  = ($j == $currentPage)? 'active' : '';
+                      $linkOnload = ($j == $currentPage)? '#' : '';
                   ?>
-                        <li class="<?php echo $className; ?>"><a href="?page=<?php echo $i.$linkOnload; ?>"><?php echo $i; ?></a></li>
-                   <?php    
-                      
-                    } 
+                      <li class="<?php echo $className; ?>">
+                        <a href="?searchBar=<?php echo $_REQUEST['searchBar']; ?>&search=&multiDelete=&page=<?php echo $j.$linkOnload; ?>"><?php echo $j; ?></a>
+                      </li>
+                   <?php 
+                    }
+                    var_dump($currentPage <> $j);
                   ?>
                 </ul>
               </div>
