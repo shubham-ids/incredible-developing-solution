@@ -130,39 +130,21 @@
           operator = "*";
           resetNumber = true;
         }); 
-<<<<<<< HEAD
       
-          // //This method is used to addtion of the value
-          // if( $('.InputNumber[value="+"]').val() == "+" ){
-          //   var a = parseInt(firstOperand);
-          //   var b = parseInt(secondOperand);
-          //   var c = a+b; 
-          //   $('.outputContainer').html( c );
-          // }
-          // // This method is used to subtraction of the value
-          // else if( $('.InputNumber[value="-"]').val() == "-" ){
-          //   var a = parseInt(firstOperand);
-          //   var b = parseInt(secondOperand);
-          //   var c = a-b; 
-          //   $('.outputContainer').html( c );
-          // }
-=======
-
-        // //This method is used to addtion of the value
-        // if( $('.InputNumber[value="+"]').val() == "+" ){
-        //   var a = parseInt(firstOperand);
-        //   var b = parseInt(secondOperand);
-        //   var c = a+b; 
-        //   $('.outputContainer').html( c );
-        // }
-        // // This method is used to subtraction of the value
-        // else if( $('.InputNumber[value="-"]').val() == "-" ){
-        //   var a = parseInt(firstOperand);
-        //   var b = parseInt(secondOperand);
-        //   var c = a-b; 
-        //   $('.outputContainer').html( c );
-        // }
->>>>>>> 7ad2e43e8855f855fefd73edd1235f2da1bc94e4
+// //This method is used to addtion of the value
+// if( $('.InputNumber[value="+"]').val() == "+" ){
+//   var a = parseInt(firstOperand);
+//   var b = parseInt(secondOperand);
+//   var c = a+b; 
+//   $('.outputContainer').html( c );
+// }
+// // This method is used to subtraction of the value
+// else if( $('.InputNumber[value="-"]').val() == "-" ){
+//   var a = parseInt(firstOperand);
+//   var b = parseInt(secondOperand);
+//   var c = a-b; 
+//   $('.outputContainer').html( c );
+// }
     </script>
   </body>
 </html>
