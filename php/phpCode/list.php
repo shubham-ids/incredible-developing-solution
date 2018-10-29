@@ -5,23 +5,7 @@
   try{
   // Select databse query 
     $sql = "SELECT * FROM ".RECORD;
-  // This method is used to delete the row in database using PDO 
-    if( isset($_REQUEST['task']) && $_REQUEST['task'] == 'delete' ){
-      $id = [
-        'id' => $_REQUEST['id']
-      ];
-      $query       = "DELETE FROM `".RECORD."` WHERE id = :id ";
-      echo $query;
-      $deleteQuery = $pdo->prepare($query);
-      $result      = $deleteQuery->execute($id);
-      if( $result !== false ){
-        //header('Location: listing.php');
-        $message = "<p class='alert alert-success'>Record is delete successfull</p>";
-      }else{
-        $message = "<p class='alert alert-danger'>Your record is not delete</p>";
-      }
-    }
-  
+
   // This method is used to multiple record delete in databases    
     if( isset($_REQUEST['multiDelete']) && $_REQUEST['multiDelete'] == 'deleted' ){  
       foreach( $_REQUEST['users'] as $id ){
@@ -34,8 +18,24 @@
         }else{
           $message = "<p class='alert alert-danger'>Email is already include!</p>"; 
         }        
-      }     
+      } 
+      $message =  "<p class='alert alert-danger'>Please select the delete of row</p>";   
     }
+  
+  // This method is used to delete the row in database using PDO 
+    if( isset($_REQUEST['task']) && $_REQUEST['task'] == 'delete' ){
+      $id = [
+        'id' => $_REQUEST['id']
+      ];
+      $query       = "DELETE FROM `".RECORD."` WHERE id = :id ";
+      $deleteQuery = $pdo->prepare($query);
+      $result      = $deleteQuery->execute($id);
+      if( $result == false ){
+        //header('Location: listing.php');
+        //$message = "<p class='alert alert-success'>Record is delete successfull</p>";
+        $message = "<p class='alert alert-danger'>Your record is not delete</p>";
+      }
+    }    
   
   // This method is used not set of page 
   // Then this is used to page value 1
@@ -53,7 +53,7 @@
     $record_perpage = 3;
     $limitPosition  = $page * $record_perpage;
 
-    (!isset($_REQUEST['searchBar'])) ? $_REQUEST['searchBar'] = "" : $_REQUEST['searchBar'] ;
+    (!isset($_REQUEST['searchBar'])) ? $_REQUEST['searchBar'] = "" : $_REQUEST['searchBar'] ;   
     
   // This method is used to search of the value in table
     if(isset($_REQUEST['search'])){
@@ -109,6 +109,25 @@
       //$rowCount       = $selectQuery->rowCount();  
       $total_numberPages  = ceil( $response / $record_perpage );
     } 
+
+    if($currentPage > $total_numberPages) {
+
+      parse_str($_SERVER['QUERY_STRING'], $queryArray);
+
+      echo '<pre>';
+      echo $_SERVER['QUERY_STRING'];
+      print_r($queryArray);
+      echo '</pre>';
+
+      $queryArray['page'] = $total_numberPages;
+
+      #$queryString =  http_build_query($queryArray);;
+
+
+      #header("Location: ?".$queryString);
+;    }
+
+
 
 
 

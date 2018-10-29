@@ -30,4 +30,22 @@ $(document).ready(function(){
     }    
   }
 
+// Bootstrap tooltip 
+  $("[data-toggle=tooltip]").tooltip();
+
 });
+
+// This method is used to delete the record using javascript
+// click the delete button and then open the alert box
+// click the ok button ans then record is delete
+// Else cancle the record delete 
+function confirmation(ID){
+  var warningMessage = "Are you sure you want to delete this Record ?"
+  var answer = confirm(warningMessage);
+  if(answer){
+    alert("Your record delete successfull");
+    window.location="?task=delete&id="+ID+"&page=<?php echo $currentPage; ?>";
+  }else{
+    alert('no action taken');
+  }
+}
