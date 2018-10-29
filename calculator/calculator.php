@@ -130,7 +130,25 @@
           operator = "*";
           resetNumber = true;
         }); 
+<<<<<<< HEAD
 
+=======
+      
+// //This method is used to addtion of the value
+// if( $('.InputNumber[value="+"]').val() == "+" ){
+//   var a = parseInt(firstOperand);
+//   var b = parseInt(secondOperand);
+//   var c = a+b; 
+//   $('.outputContainer').html( c );
+// }
+// // This method is used to subtraction of the value
+// else if( $('.InputNumber[value="-"]').val() == "-" ){
+//   var a = parseInt(firstOperand);
+//   var b = parseInt(secondOperand);
+//   var c = a-b; 
+//   $('.outputContainer').html( c );
+// }
+>>>>>>> 8b2b78db42c5c6aa9519bab848f23fca679c334a
     </script>
   </body>
 </html>
