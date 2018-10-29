@@ -36,56 +36,78 @@
         }        
       }     
     }
+  
+  // This method is used not set of page 
+  // Then this is used to page value 1
+    (!isset($_REQUEST['page']) ) ? $_REQUEST['page'] = 1 : '';
+  
+  // This method is used to empty of the page and then return the current page 1
+  // Else page value in user define in interger     
+    (empty($_REQUEST['page']) ) ? $currentPage = 1 :  $currentPage = intval( $_REQUEST['page'] );
 
-  // This method is used to search of the value
-    if(empty($_REQUEST['page']) ){
-      $currentPage = 1;
-    }else{
-      $currentPage = intval( $_REQUEST['page'] );
-    }  
-    if($_REQUEST['page'] <= 0){
-      $currentPage = 1;
-    }
+  // This method is used to page number less then of 0 or equal to 0
+  // Then autometic page of value in 1  
+    ($_REQUEST['page'] <= 0) ? $currentPage = 1 : $currentPage;
+
+    $page           = $currentPage -1 ;
+    $record_perpage = 3;
+    $limitPosition  = $page * $record_perpage;
+
+    (!isset($_REQUEST['searchBar'])) ? $_REQUEST['searchBar'] = "" : $_REQUEST['searchBar'] ;
+    
+  // This method is used to search of the value in table
     if(isset($_REQUEST['search'])){
-      $searchUser = "%".$_POST['searchBar']."%"; 
+      $searchUser = "%".$_REQUEST['searchBar']."%"; 
       $searchRow = [
         'firstname' => $searchUser,
         'lastname'  => $searchUser,
         'username'  => $searchUser
     ];
-      $query = $sql." WHERE
+      $query = "
+      SELECT 
+      SQL_CALC_FOUND_ROWS
+      *
+      FROM 
+        `".RECORD."`
+       WHERE
           `firstname` LIKE :firstname
         OR 
-           `lastname` LIKE :lastname 
+          `lastname` LIKE :lastname 
         OR 
-           `username` LIKE :username      
+          `username` LIKE :username
+         
+          limit $limitPosition , $record_perpage       
         ";
+
       $selectQuery = $pdo->prepare($query);
       $selectQuery->execute( $searchRow );
-    }else{
       
-    // This method is used to display the pagination in     
-      $query        = $sql; 
-    // This method is used to empty of the page value
-    // Then page default value is 1
-    // Else page value is user define  
-      $page           = $currentPage -1 ;
-      $record_perpage = 3;
-      $limitPosition  = $page * $record_perpage;
-
-    // This method is used to count the total of row
-      $query1         = $pdo->prepare($sql);
-      $query1->execute();
-      $rowCount       = $query1->rowCount();
-      $total_numberPages  = ceil( $rowCount / $record_perpage );
+      $statement = $pdo->query('SELECT FOUND_ROWS()');
+      $response = $statement->fetchColumn();
+      $total_numberPages  = ceil( $response / $record_perpage );
+    }else{       
 
     // Pagination of query
-      $query        = $sql." limit $limitPosition , $record_perpage"; 
+      $query = "
+        SELECT
+        SQL_CALC_FOUND_ROWS 
+        * 
+        FROM 
+          `".RECORD."` 
+          limit $limitPosition , $record_perpage
+      "; 
       $selectQuery  = $pdo->prepare($query);
     // Convert the string to integer number
       $selectQuery->bindValue(':limitPosition', $limitPosition, PDO::PARAM_INT);
       $selectQuery->bindValue(':record_perpage', $record_perpage, PDO::PARAM_INT);      
       $selectQuery->execute();
+      
+    // This method is used to count the row
+    // And giving the integer number  
+      $statement = $pdo->query('SELECT FOUND_ROWS()');
+      $response = $statement->fetchColumn();
+      //$rowCount       = $selectQuery->rowCount();  
+      $total_numberPages  = ceil( $response / $record_perpage );
     } 
 
 
