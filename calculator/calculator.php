@@ -130,9 +130,6 @@
           operator = "*";
           resetNumber = true;
         }); 
-<<<<<<< HEAD
-=======
-
       
           // //This method is used to addtion of the value
           // if( $('.InputNumber[value="+"]').val() == "+" ){
@@ -148,7 +145,6 @@
           //   var c = a-b; 
           //   $('.outputContainer').html( c );
           // }
->>>>>>> 97f4db2936af0782c01904faee2054a922f63701
     </script>
   </body>
 </html>
