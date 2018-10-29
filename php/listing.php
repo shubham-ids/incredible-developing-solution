@@ -2,7 +2,7 @@
   include_once('phpCode/list.php'); 
   include_once('header.php'); 
 ?>
-<form method="post">
+<form method="get">
   <div class="container">
     <div class="row">  
       <h1>Student Records</h1>
@@ -36,7 +36,7 @@
                 <div class="input-group col col-xs-9">
                   <select class="custom-select" id="inputGroupSelect04" name="multiDelete">
                     <option value="">Choose...</option>
-                    <option value="deleted">Deleted</option>
+                    <option value="deleted" data-toggle = "tooltip" data-placement = "top" title = "Delete">Deleted</option>
                   </select>
                   <div class="input-group-append">
                     <button class="btn btn-sm btn-primary btn-create" id="actionButton" name="action">Action</button>
@@ -72,8 +72,23 @@
                 ?>
                 <tr>    
                   <td align="center">
-                    <a class="btn btn-default" href="update.php?task=update&id=<?php echo $row['id']; ?>"><em class="fa fa-pencil"></em></a>
-                    <a class="btn btn-danger" href="?task=delete&id=<?php echo $row['id']; ?>"><em class="fa fa-trash"></em></a>
+                    <a 
+                      class          = "btn btn-default"
+                      data-toggle    = "tooltip"
+                      data-placement = "left"
+                      title          = "Edit"                       
+                      href           = "update.php?task=update&id=<?php echo $row['id']; ?>">
+                      <em class="fa fa-pencil"></em>
+                    </a>
+                    <a 
+                      class          = "btn btn-danger" 
+                      data-toggle    = "tooltip"
+                      id             = "deleteRow"
+                      data-placement = "right"
+                      title          = "Delete"
+                      href           = "javascript:confirmation(<?php echo $row['id']; ?>)">
+                      <em class="fa fa-trash"></em>
+                    </a>
                   </td>
                   <td> <input type="checkbox" name="users[]" class="checkItem" value="<?php echo $row['id']; ?>"></td>
                   <td class="hidden-xs"> <?php echo $i+$start; ?>                </td>
@@ -101,9 +116,12 @@
                       <li class="<?php echo $className; ?>">
                         <a href="?searchBar=<?php echo $_REQUEST['searchBar']; ?>&search=&multiDelete=&page=<?php echo $j.$linkOnload; ?>"><?php echo $j; ?></a>
                       </li>
-                   <?php 
+                   <?php
                     }
-                    var_dump($currentPage <> $j);
+                    // if( $currentPage > $j ){
+                    //   echo "<p class='PageNotFound'> Page not found</p>";
+                    //   return;
+                    // }  
                   ?>
                 </ul>
               </div>
@@ -112,7 +130,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> 
 </form>
 <script src="includes/custom.js " ></script>
 <?php include_once('footer.php'); ?>
