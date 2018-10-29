@@ -110,20 +110,15 @@
       $total_numberPages  = ceil( $response / $record_perpage );
     } 
 
+  // This method is used to if current value is greater then of total number of page
+  // Then current page value assign of total number of page
     if($currentPage > $total_numberPages) {
-
-      parse_str($_SERVER['QUERY_STRING'], $queryArray);
-
-      // echo '<pre>';
-      // echo $_SERVER['QUERY_STRING'];
-      // print_r($queryArray);
-      // echo '</pre>';
-
+    // This method is convert the Querystring to array using parse_str
+    // QUERY_STRING are like url:?searchBar=shubha&page=1 to 6
+      parse_str($_SERVER['QUERY_STRING'], $queryArray); 
       $queryArray['page'] = $total_numberPages;
-
+    // This method is used to convert the ArrayQuery to stringQuery
       $queryString =  http_build_query($queryArray);;
-
-
       header("Location: ?".$queryString);
     }
 
