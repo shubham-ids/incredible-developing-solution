@@ -56,8 +56,8 @@
     (!isset($_REQUEST['searchBar'])) ? $_REQUEST['searchBar'] = "" : $_REQUEST['searchBar'] ;   
     
   // This method is used to search of the value in table
-    if(isset($_GET['search'])){
-      $searchUser = "%".$_GET['searchBar']."%"; 
+    if(isset($_REQUEST['search'])){
+      $searchUser = "%".$_REQUEST['searchBar']."%"; 
       $searchRow = [
         'firstname' => $searchUser,
         'lastname'  => $searchUser,
@@ -106,7 +106,6 @@
     // And giving the integer number  
       $statement = $pdo->query('SELECT FOUND_ROWS()');
       $response = $statement->fetchColumn();
-      //$rowCount       = $selectQuery->rowCount();  
       $total_numberPages  = ceil( $response / $record_perpage );
     } 
 
@@ -118,7 +117,8 @@
       parse_str($_SERVER['QUERY_STRING'], $queryArray); 
       $queryArray['page'] = $total_numberPages;
     // This method is used to convert the ArrayQuery to stringQuery
-      $queryString =  http_build_query($queryArray);;
+      $queryString =  http_build_query($queryArray);
+      echo $queryString;
       header("Location: ?".$queryString);
     }
 
