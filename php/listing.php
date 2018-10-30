@@ -135,38 +135,4 @@
   </div> 
 </form>
 <script src="includes/custom.js " ></script>
-<script type="text/javascript">
-  $(document).ready( function(){ 
-    $('#actionButton').click( function(){
-      var post_arr = [];
-      var message  = "Are you sure you want to delete this multiple Records !";
-      if( $('.checkItem:checked').length == '' ){
-         return alert('Please select atleast one checkbox');
-      }
-      $('.checkItem:checked').each(function(){        
-        post_arr.push( $(this).val() );
-      });
-      if(confirm(message)){
-        $.ajax({
-          type: "get",
-          url: "listing.php?multiDelete=deleted",
-          data:{ users : post_arr } ,
-          //cache: true,
-          success: function() {
-            $.each(post_arr, function(key, value) {
-              $("tr").remove();
-            });
-            console.log('Data delete successfull');
-          },
-          error: function(){
-            console.log('Your records are not delete');
-          }
-        });
-      }else{
-        alert('No action taken');
-      }
-      return false;
-    });
-  });
-</script>
 <?php include_once('footer.php'); ?>

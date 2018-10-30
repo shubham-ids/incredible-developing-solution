@@ -11,9 +11,6 @@
       if(!isset($_REQUEST['users']) ){
         $_REQUEST['users'] = '';
       }  
-      // echo "<pre>";
-      //   print_r($_REQUEST['users']);
-      // echo "</pre>";
       foreach( $_REQUEST['users'] as $id ){
         $query       = "DELETE FROM `".RECORD."` WHERE id = :id ";
         $deleteQuery = $pdo->prepare($query);
@@ -24,11 +21,8 @@
         }else{
           $message = "<p class='alert alert-danger'>Email is already include!</p>"; 
         }        
-      } 
-      // echo $message;
-      // die;       
+      }        
       $message =  "<p class='alert alert-danger'>Please select atleast one checkbox</p>";
-
     }
   
   // This method is used to delete the row in database using PDO 
