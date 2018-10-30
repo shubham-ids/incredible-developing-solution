@@ -36,7 +36,7 @@
                 <div class="input-group col col-xs-9">
                   <select class="custom-select" id="inputGroupSelect04" name="multiDelete">
                     <option value="">Choose...</option>
-                    <option value="deleted" data-toggle = "tooltip" data-placement = "top" title = "Delete">Deleted</option>
+                    <option value="deleted">Deleted</option>
                   </select>
                   <div class="input-group-append">
                     <button class="btn btn-sm btn-primary btn-create" id="actionButton" name="action">Action</button>
@@ -44,7 +44,7 @@
                 </div>
               </div> 
               <div class="col col-xs-6 text-right">
-                <a href="register.php" class="btn btn-sm btn-primary btn-create" name="register">Create News</a>
+                <a href="register.php" class="btn btn-sm btn-primary btn-create" name="register">Create News Item</a>
               </div>               
              <!-- <div class="col col-xs-6 text-right">
                 <button type="button" class="btn btn-sm btn-primary btn-create" name="register">Create New</button>
@@ -81,12 +81,11 @@
                       <em class="fa fa-pencil"></em>
                     </a>
                     <a 
-                      class          = "btn btn-danger" 
+                      class          = "btn btn-danger deleteAjax" 
                       data-toggle    = "tooltip"
-                      id             = "deleteRow"
+                      id             = "<?php echo $row['id']; ?>"
                       data-placement = "right"
-                      title          = "Delete"
-                      href           = "javascript:confirmation(<?php echo $row['id']; ?>)">
+                      title          = "Delete">
                       <em class="fa fa-trash"></em>
                     </a>
                   </td>
@@ -129,4 +128,27 @@
   </div> 
 </form>
 <script src="includes/custom.js " ></script>
+<script type="text/javascript">
+  $(document).ready( function(){ 
+    $('#actionButton').click( function(){
+      var message = "Are you sure you want to delete this multiple Records !";
+      if(confirm(message)){
+          $.ajax({
+          type: "get",
+          url:  "?task=deleted",
+          data: info,
+          success: function(){
+            $(parent).remove();
+            alert('Record is delete successfull');
+          },
+          error: function(){
+            alert('Something is wrong !');
+          }
+      });
+      }else{
+        alert('No action taken');
+      }
+    });
+  });
+</script>
 <?php include_once('footer.php'); ?>
