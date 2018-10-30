@@ -89,7 +89,14 @@
                       <em class="fa fa-trash"></em>
                     </a>
                   </td>
-                  <td> <input type="checkbox" name="users[]" class="checkItem" value="<?php echo $row['id']; ?>"></td>
+                  <td>
+                    <input 
+                      type  = "checkbox" 
+                      name  = "users[]" 
+                      class = "checkItem"
+                      id    = "<?php echo $row['id']; ?>"
+                      value = "<?php echo $row['id']; ?>">
+                  </td>
                   <td class="hidden-xs"> <?php echo $i+$start; ?>                </td>
                   <td class="hidden-xs"> <?php echo $row['firstname']; ?> </td>
                   <td class="hidden-xs"> <?php echo $row['lastname']; ?>  </td>
@@ -131,23 +138,34 @@
 <script type="text/javascript">
   $(document).ready( function(){ 
     $('#actionButton').click( function(){
-      var message = "Are you sure you want to delete this multiple Records !";
+      var post_arr = [];
+      var message  = "Are you sure you want to delete this multiple Records !";
+      if( $('.checkItem:checked').length == '' ){
+         return alert('Please select atleast one checkbox');
+      }
+      $('.checkItem:checked').each(function(){        
+        post_arr.push( $(this).val() );
+      });
       if(confirm(message)){
-          $.ajax({
+        $.ajax({
           type: "get",
-          url:  "?task=deleted",
-          data: info,
-          success: function(){
-            $(parent).remove();
-            alert('Record is delete successfull');
+          url: "listing.php?multiDelete=deleted",
+          data:{ users : post_arr } ,
+          //cache: true,
+          success: function() {
+            $.each(post_arr, function(key, value) {
+              $("tr").remove();
+            });
+            console.log('Data delete successfull');
           },
           error: function(){
-            alert('Something is wrong !');
+            console.log('Your records are not delete');
           }
-      });
+        });
       }else{
         alert('No action taken');
       }
+      return false;
     });
   });
 </script>

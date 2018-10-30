@@ -7,7 +7,13 @@
     $sql = "SELECT * FROM ".RECORD;
 
   // This method is used to multiple record delete in databases    
-    if( isset($_REQUEST['multiDelete']) && $_REQUEST['multiDelete'] == 'deleted' ){  
+    if( isset($_REQUEST['multiDelete']) && $_REQUEST['multiDelete'] == 'deleted' ){
+      if(!isset($_REQUEST['users']) ){
+        $_REQUEST['users'] = '';
+      }  
+      // echo "<pre>";
+      //   print_r($_REQUEST['users']);
+      // echo "</pre>";
       foreach( $_REQUEST['users'] as $id ){
         $query       = "DELETE FROM `".RECORD."` WHERE id = :id ";
         $deleteQuery = $pdo->prepare($query);
@@ -19,7 +25,10 @@
           $message = "<p class='alert alert-danger'>Email is already include!</p>"; 
         }        
       } 
-      $message =  "<p class='alert alert-danger'>Please select the delete of row</p>";   
+      // echo $message;
+      // die;       
+      $message =  "<p class='alert alert-danger'>Please select atleast one checkbox</p>";
+
     }
   
   // This method is used to delete the row in database using PDO 
