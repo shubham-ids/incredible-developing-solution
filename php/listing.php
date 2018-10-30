@@ -36,7 +36,7 @@
                 <div class="input-group col col-xs-9">
                   <select class="custom-select" id="inputGroupSelect04" name="multiDelete">
                     <option value="">Choose...</option>
-                    <option value="deleted" data-toggle = "tooltip" data-placement = "top" title = "Delete">Deleted</option>
+                    <option value="deleted">Deleted</option>
                   </select>
                   <div class="input-group-append">
                     <button class="btn btn-sm btn-primary btn-create" id="actionButton" name="action">Action</button>
@@ -44,7 +44,7 @@
                 </div>
               </div> 
               <div class="col col-xs-6 text-right">
-                <a href="register.php" class="btn btn-sm btn-primary btn-create" name="register">Create News</a>
+                <a href="register.php" class="btn btn-sm btn-primary btn-create" name="register">Create News Item</a>
               </div>               
              <!-- <div class="col col-xs-6 text-right">
                 <button type="button" class="btn btn-sm btn-primary btn-create" name="register">Create New</button>
@@ -81,16 +81,22 @@
                       <em class="fa fa-pencil"></em>
                     </a>
                     <a 
-                      class          = "btn btn-danger" 
+                      class          = "btn btn-danger deleteAjax" 
                       data-toggle    = "tooltip"
-                      id             = "deleteRow"
+                      id             = "<?php echo $row['id']; ?>"
                       data-placement = "right"
-                      title          = "Delete"
-                      href           = "javascript:confirmation(<?php echo $row['id']; ?>)">
+                      title          = "Delete">
                       <em class="fa fa-trash"></em>
                     </a>
                   </td>
-                  <td> <input type="checkbox" name="users[]" class="checkItem" value="<?php echo $row['id']; ?>"></td>
+                  <td>
+                    <input 
+                      type  = "checkbox" 
+                      name  = "users[]" 
+                      class = "checkItem"
+                      id    = "<?php echo $row['id']; ?>"
+                      value = "<?php echo $row['id']; ?>">
+                  </td>
                   <td class="hidden-xs"> <?php echo $i+$start; ?>                </td>
                   <td class="hidden-xs"> <?php echo $row['firstname']; ?> </td>
                   <td class="hidden-xs"> <?php echo $row['lastname']; ?>  </td>

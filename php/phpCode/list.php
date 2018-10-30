@@ -7,7 +7,10 @@
     $sql = "SELECT * FROM ".RECORD;
 
   // This method is used to multiple record delete in databases    
-    if( isset($_REQUEST['multiDelete']) && $_REQUEST['multiDelete'] == 'deleted' ){  
+    if( isset($_REQUEST['multiDelete']) && $_REQUEST['multiDelete'] == 'deleted' ){
+      if(!isset($_REQUEST['users']) ){
+        $_REQUEST['users'] = '';
+      }  
       foreach( $_REQUEST['users'] as $id ){
         $query       = "DELETE FROM `".RECORD."` WHERE id = :id ";
         $deleteQuery = $pdo->prepare($query);
@@ -18,8 +21,8 @@
         }else{
           $message = "<p class='alert alert-danger'>Email is already include!</p>"; 
         }        
-      } 
-      $message =  "<p class='alert alert-danger'>Please select the delete of row</p>";   
+      }        
+      $message =  "<p class='alert alert-danger'>Please select atleast one checkbox</p>";
     }
   
   // This method is used to delete the row in database using PDO 
@@ -111,22 +114,17 @@
 
   // This method is used to if current value is greater then of total number of page
   // Then current page value assign of total number of page
-    if($currentPage > $total_numberPages) {
+     if($currentPage > $total_numberPages) {
+    
     // This method is convert the Querystring to array using parse_str
     // QUERY_STRING are like url:?searchBar=shubha&page=1 to 6
       parse_str($_SERVER['QUERY_STRING'], $queryArray); 
       $queryArray['page'] = $total_numberPages;
     // This method is used to convert the ArrayQuery to stringQuery
       $queryString =  http_build_query($queryArray);
-      echo $queryString;
       header("Location: ?".$queryString);
     }
 
-
-
-
-
-  // This method is used to display the pagination in 
   }catch(PDOException $e){
     echo "Not display the record contact the developer";
     //echo $e->getMessage();
