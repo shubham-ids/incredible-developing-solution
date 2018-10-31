@@ -46,8 +46,13 @@ $(document).ready(function(){
       type: "get",
       url:  "?task=delete",
       data: info,
+      beforeSend: function() {
+        $(parent).animate({'backgroundColor':'#fb6c6c' });
+      },      
       success: function(){
-        $(parent).remove();
+        $(parent).slideUp('slow',function() {
+          $(parent).remove();
+        });
         alert('Record is delete successfull');
       },
       error: function(){
