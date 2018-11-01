@@ -25,6 +25,35 @@
       $message =  "<p class='alert alert-danger'>Please select atleast one checkbox</p>";
     }
   
+  /*
+   * This Method is uded to delete of the multiple records without foreach
+   */
+    // if( isset($_REQUEST['multiDelete']) && $_REQUEST['multiDelete'] == 'deleted' ){
+    //   $checkbox = $_REQUEST['users'];
+    //   echo "<pre>";
+    //     print_r(  count($checkbox));
+    //   echo "</pre>";
+    //   for( $i=0; $i < count($checkbox); $i++ ){
+    //    $del_id = $checkbox[$i];
+
+    //    echo "<pre>";
+    //      print_r($del_id);
+    //    echo "</pre>";
+         
+
+         $query       = "DELETE FROM `".RECORD."` WHERE id = :id ";
+         $deleteQuery = $pdo->prepare($query);  
+         $results     = $deleteQuery->execute(['id' => $del_id]);
+         if($results !== false){
+           $message = "<p class='alert alert-success'>Records are deleted successfull</p>";
+         }else{
+           $message = "<p class='alert alert-danger'>Email is already include!</p>";
+         }    
+      }
+    }
+
+
+
   // This method is used to delete the row in database using PDO 
     if( isset($_REQUEST['task']) && $_REQUEST['task'] == 'delete' ){
       $id = [
